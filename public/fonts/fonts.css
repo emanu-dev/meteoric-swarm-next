@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    src: local('Atkinson Hyperlegible'), url('Atkinson-Hyperlegible-Regular-102.ttf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    font-weight: 700;
+    src: local('Atkinson Hyperlegible'), url('Atkinson-Hyperlegible-Bold-102.ttf') format('opentype');
+}
+
+@font-face {
+    font-family: 'DejaVuSans';
+    src: local('DejaVuSans'), url('DejaVuSans-ExtraLight.ttf') format('opentype');
+}
