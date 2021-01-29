@@ -1,6 +1,7 @@
-import styled from 'styled-components'
-import Head from 'next/head'
-import React, {useEffect, useRef} from 'react'
+import styled from 'styled-components';
+import Image from 'next/image';
+import React, {useEffect, useRef} from 'react';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 
 import Main from '../src/components/main'
 import Line from '../src/components/line'
@@ -16,6 +17,28 @@ const Debug = styled.div`
   position: fixed;
   text-transform: uppercase;
   z-index: 9999;
+`
+
+const Text = styled.div`
+  align-self: stretch;
+  color: ${props => props.theme.colors.textContrast};
+  display: flex;
+  flex-direction: column;
+`
+Text.Header = styled.h3`
+  color: ${props => props.theme.colors.primary};
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-size: 7rem;
+  line-height: 90%;
+  margin: 0;
+  text-transform: uppercase;
+`
+Text.Body = styled.p`
+  color: ${props => props.theme.colors.textContrast};
+  font-family: 'DejaVuSans', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  line-height: 120%;
 `
 
 const Home = () => {
@@ -49,18 +72,38 @@ const Home = () => {
       </Section.Main>
       <Section>
         <Section.Header className='--left'>About me</Section.Header>
+        <Section.Content>
+          <Text>
+            <Text.Header>Emanuel<br/>Prado</Text.Header>
+            <Text.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text.Body>
+          </Text>
+          <Image
+            src='/img/me.png'
+            width={588}
+            height={845}
+          />
+        </Section.Content>
       </Section>
       <Section>
         <Section.Header className='--right'>Passions</Section.Header>
       </Section>
       <Section>
         <Section.Header className='--left'>Projects</Section.Header>
+        <CarouselProvider
+          naturalSlideWidth={100}
+          naturalSlideHeight={125}
+          totalSlides={3}
+        >
+          <Slider>
+            <Slide index={0}>I am the first Slide.</Slide>
+            <Slide index={1}>I am the second Slide.</Slide>
+            <Slide index={2}>I am the third Slide.</Slide>
+          </Slider>
+        </CarouselProvider>
       </Section>
-      <Section></Section>
-      <Section></Section>
-      <Section></Section>
-      <Section></Section>
-      <Section></Section>
+      <Section>
+        <Section.Header className='--right'>More</Section.Header>
+      </Section>
     </Main>
   )
 }

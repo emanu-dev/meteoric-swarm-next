@@ -5,12 +5,14 @@ const Line = styled.div`
   background-color: #fff;
   height: 0px;
   left: 50vw;
+  opacity: .25;
   transition: transform 300ms ease;
   top: 60vh;
   width: 2px;
   z-index: 999;
 
   &.--center {
+    opacity: 1;
     left: 50vw;
   }
 

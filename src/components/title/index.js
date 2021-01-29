@@ -5,6 +5,9 @@ const Title = styled.div`
 `
 
 Title.Text = styled.p`
+  background: linear-gradient(45deg, #03001e, #7303c0, #ec38bc, #fdeff9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;  
   color: ${props => props.theme.colors.textContrast};
   font-family: 'Atkinson Hyperlegible', sans-serif;
   font-weight: bold;
@@ -24,7 +27,7 @@ Title.Text = styled.p`
 `;
 
 Title.Tags = styled.p`
-  color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.textContrast};
   margin: 0 auto;
   text-transform: uppercase;
   text-align: center;  
