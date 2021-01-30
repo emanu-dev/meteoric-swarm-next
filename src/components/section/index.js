@@ -41,6 +41,10 @@ Section.Content = styled.div`
   max-width: 120rem;
   margin: 0 auto;
   padding: 4rem 2rem;
+  
+  &.--spread {
+    grid-template-columns: 1fr;
+  }
 `
 
 export default Section;

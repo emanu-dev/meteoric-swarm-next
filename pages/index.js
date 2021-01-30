@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import React, {useEffect, useRef} from 'react';
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import db from '../src/db.json';
 
 import Main from '../src/components/main'
 import Line from '../src/components/line'
@@ -89,17 +91,25 @@ const Home = () => {
       </Section>
       <Section>
         <Section.Header className='--left'>Projects</Section.Header>
-        <CarouselProvider
-          naturalSlideWidth={100}
-          naturalSlideHeight={125}
-          totalSlides={3}
-        >
-          <Slider>
-            <Slide index={0}>I am the first Slide.</Slide>
-            <Slide index={1}>I am the second Slide.</Slide>
-            <Slide index={2}>I am the third Slide.</Slide>
-          </Slider>
-        </CarouselProvider>
+        <Section.Content className='--spread'>
+          <CarouselProvider
+            totalSlides={3}
+            isIntrinsicHeight={true}
+          >
+            <Slider>
+              {db.projects.map( (project, index) => {
+                return(
+                  <Slide index={index} key={index}>
+                    <h4><a href={project.link}>{project.name}</a></h4>
+                    <Image src={project.image} width={710} height={503}/>
+                  </Slide>
+                )
+              })}
+            </Slider>
+            <ButtonBack>Back</ButtonBack>
+            <ButtonNext>Next</ButtonNext>
+          </CarouselProvider>
+        </Section.Content>
       </Section>
       <Section>
         <Section.Header className='--right'>More</Section.Header>
