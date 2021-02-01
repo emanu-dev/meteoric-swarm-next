@@ -7,17 +7,27 @@ const Project = styled.div`
   flex-direction: column;
   justify-content: center;
   padding: 2rem;
+  position: relative;
   
   > a {
     color: inherit;
     text-decoration: none;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
   }
 `
 Project.Title = styled.h4`
   font-family: "Atkinson Hyperlegible", sans-serif;
-  font-size: 3rem;
+  font-size: 6.5rem;
+  left: 0;
+  line-height: 110%;
   margin: 1rem 0;
-  text-align: center;
+  text-align: left;
+  text-shadow: 1px 1px 2px black;
+  position: absolute;
+  top: 10rem;
+  width: 50rem;
 `
 
 Project.Desc = styled.p`
