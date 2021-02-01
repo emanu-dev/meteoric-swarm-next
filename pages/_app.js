@@ -5,6 +5,7 @@ const theme = {
   colors: {
     primary: '#FFA800',
     textContrast: '#FFFFFF',
+    primaryGradient: 'linear-gradient(45deg, #03001e, #7303c0, #ec38bc, #fdeff9)',
   },
 }
 

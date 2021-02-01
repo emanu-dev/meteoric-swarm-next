@@ -3,6 +3,10 @@ import styled from "styled-components";
 const Title = styled.div`
   margin-top: 5rem;
   font-family: 'Atkinson Hyperlegible', sans-serif;
+  
+  @media screen and (max-width: 600px) {
+    margin-top: 10rem;  
+  }
 `
 
 Title.Text = styled.p`
@@ -19,11 +23,21 @@ Title.Text = styled.p`
   &.--size-md {
     font-size: 9.5rem;
     line-height: 9.9rem;
+
+    @media screen and (max-width: 600px) {
+      font-size: 3.8rem;
+      line-height: 3.5rem;      
+    }
   }
 
   &.--size-lg {
     font-size: 18.6rem;
     line-height: 19.2rem;
+
+    @media screen and (max-width: 600px) {
+      font-size: 7.4rem;
+      line-height: 6.5rem;      
+    }
   }
   
   &.--glitched {
@@ -31,7 +45,7 @@ Title.Text = styled.p`
     z-index: 999;
     
     &:before, &:after {
-      background: linear-gradient(45deg, #03001e, #7303c0, #ec38bc, #fdeff9);
+      background: ${props => props.theme.colors.primaryGradient};
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;      
       content: 'DESIGN';
@@ -82,7 +96,12 @@ Title.Tags = styled.p`
 `
 Title.Tags.Tag = styled.span`
   font-size: 7rem;
-  line-height: 7.4rem;  
+  line-height: 7.4rem;
+
+  @media screen and (max-width: 600px) {
+    font-size: 2.8rem;
+    line-height: 3.5rem;  
+  }
 `
 
 export default Title;

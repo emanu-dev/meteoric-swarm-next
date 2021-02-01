@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import React, {useEffect, useRef} from 'react';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Dot, DotGroup } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import db from '../src/db.json';
 
@@ -35,6 +35,10 @@ Text.Header = styled.h3`
   line-height: 90%;
   margin: 0;
   text-transform: uppercase;
+
+  @media screen and (max-width: 600px) {
+    font-size: 4rem;  
+  }
 `
 Text.Body = styled.p`
   color: ${props => props.theme.colors.textContrast};
@@ -42,6 +46,10 @@ Text.Body = styled.p`
   font-size: 2.2rem;
   font-weight: 300;
   line-height: 120%;
+
+  @media screen and (max-width: 600px) {
+    font-size: 1.6rem;
+  }  
 `
 
 const Home = () => {
@@ -84,11 +92,13 @@ const Home = () => {
             <Text.Header>Emanuel<br/>Prado</Text.Header>
             <Text.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text.Body>
           </Text>
-          <Image
-            src='/img/me.png'
-            width={588}
-            height={845}
-          />
+          <div>
+            <Image
+              src='/img/me.png'
+              width={588}
+              height={845}
+            />
+          </div>
         </Section.Content>
       </Section>
       <Section>
@@ -106,18 +116,17 @@ const Home = () => {
                 return(
                   <Slide index={index} key={index} className=''>
                     <Project>
-                      <a href={project.link}>
-                        <Image src={project.image} width={710} height={503}/>
+                      <Project.Content>
                         <Project.Title>{project.name}</Project.Title>
-                      </a>
-                      <Project.Desc>{project.desc}</Project.Desc>
+                        <Project.Desc>{project.desc}</Project.Desc>
+                      </Project.Content>
+                      <Project.Image src={project.image} />
                     </Project>
                   </Slide>
                 )
               })}
             </Slider>
-            <ButtonBack>ᐊ</ButtonBack>
-            <ButtonNext>ᐅ</ButtonNext>
+            <DotGroup />
           </CarouselProvider>
         </Section.Content>
       </Section>

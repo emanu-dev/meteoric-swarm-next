@@ -11,17 +11,29 @@ const Line = styled.div`
   width: 2px;
   z-index: 999;
 
+  @media screen and (max-width: 600px) {
+    width: 1px;
+  } 
+  
   &.--center {
     opacity: 1;
     left: 50vw;
   }
 
   &.--left {
-    transform: translate(-50vw) translate(60px);
+    transform: translate(-50vw) translate(20px);
+    
+    @media screen and (max-width: 600px) {
+      width: 1px;
+    }    
   }
 
   &.--right {
-    transform: translate(50vw) translate(-60px);
+    transform: translate(50vw) translate(-20px);
+    
+    @media screen and (max-width: 600px) {
+      width: 1px;
+    }    
   }
 `
 Line.SeeMore = styled.p`
@@ -36,7 +48,12 @@ Line.SeeMore = styled.p`
   top: 58vh;
   transition: opacity 300ms ease;
   position: fixed;
-  
+
+  @media screen and (max-width: 600px) {
+    font-size: 1.6rem;
+    left: 54%;
+  }
+
   &.--active {
     opacity: 1;  
   }
