@@ -24,5 +24,22 @@ const Line = styled.div`
     transform: translate(50vw) translate(-60px);
   }
 `
+Line.SeeMore = styled.p`
+  color: #ffffff;
+  font-family: "DejaVu Sans", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 300;
+  left: 52%;
+  opacity: 0;
+  text-align: left;
+  text-transform: uppercase;
+  top: 60vh;
+  transition: opacity 300ms ease;
+  position: fixed;
+  
+  &.--active {
+    opacity: 1;  
+  }
+`
 
 export default Line;

@@ -26,16 +26,18 @@ const updateWindowSize = (mainComponent, lineElement) => {
   lineElement.current.style.height = `${pageHeight-SECTION_HEIGHT}px`;
 }
 
-const updateSectionsVisibility = (lineElement) => {
+const updateSectionsVisibility = (lineElement, seeMoreElement) => {
   if (!isWithinSections() || getSectionNumbering() === 0) {
     lineElement.current.classList.remove('--right', '--left');
     lineElement.current.classList.add('--center');
+    seeMoreElement.current.classList.add('--active');
 
     [].map.call(sectionList, (element) => {
       element.classList.remove('--active');
     });
 
   } else {
+    seeMoreElement.current.classList.remove('--active');
     if (getSectionNumbering() % 2 === 1) {
       lineElement.current.classList.remove('--center', '--right');
       lineElement.current.classList.add('--left');
@@ -54,11 +56,11 @@ const updateSectionsVisibility = (lineElement) => {
   }
 }
 
-const handleScroll = (debugElement, lineElement) => {
+const handleScroll = (debugElement, lineElement, seeMoreElement) => {
   pagePercentage = Math.floor((document.documentElement.scrollTop/pageHeight)*100);
   debugElement.current.textContent = `ScrollPos ${document.documentElement.scrollTop} | CurrentSection #${Math.floor(document.documentElement.scrollTop / SECTION_HEIGHT)}`;
 
-  updateSectionsVisibility(lineElement);
+  updateSectionsVisibility(lineElement, seeMoreElement);
 }
 
 export default {

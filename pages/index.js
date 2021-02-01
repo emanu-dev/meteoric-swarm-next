@@ -46,14 +46,15 @@ Text.Body = styled.p`
 const Home = () => {
 
   const lineElement = useRef(null);
+  const seeMoreElement = useRef(null);
   const mainComponent = useRef(null);
   const debugElement = useRef(null)
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {sectionsHandler.handleScroll(debugElement, lineElement)});
+    window.addEventListener("scroll", () => {sectionsHandler.handleScroll(debugElement, lineElement, seeMoreElement)});
     sectionsHandler.updateWindowSize(mainComponent, lineElement);
     return () => {
-      window.removeEventListener("scroll", () => {sectionsHandler.handleScroll(debugElement, lineElement)});
+      window.removeEventListener("scroll", () => {sectionsHandler.handleScroll(debugElement, lineElement, seeMoreElement)});
     };
   });
 
@@ -70,6 +71,9 @@ const Home = () => {
             <Title.Tags.Tag> game</Title.Tags.Tag>
           </Title.Tags>
           <Title.Text className='--size-lg'>design</Title.Text>
+          <Line.SeeMore ref={seeMoreElement} className='--active'>
+            See<br/>More<br/>ᐁ
+          </Line.SeeMore>
         </Title>
       </Section.Main>
       <Section>
