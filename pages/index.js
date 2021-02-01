@@ -10,6 +10,7 @@ import Line from '../src/components/line'
 import Section from '../src/components/section'
 import sectionsHandler from '../src/utils/sectionsHandler'
 import Title from '../src/components/title'
+import Project from "../src/components/project";
 
 const Debug = styled.div`
   background-color: #2c2c2c;
@@ -70,9 +71,9 @@ const Home = () => {
             <Title.Tags.Tag>graphic</Title.Tags.Tag>
             <Title.Tags.Tag> game</Title.Tags.Tag>
           </Title.Tags>
-          <Title.Text className='--size-lg'>design</Title.Text>
+          <Title.Text className='--size-lg --glitched'>design</Title.Text>
           <Line.SeeMore ref={seeMoreElement} className='--active'>
-            See<br/>More<br/>ᐁ
+            See<br/>More<br/> ᐁ
           </Line.SeeMore>
         </Title>
       </Section.Main>
@@ -97,21 +98,26 @@ const Home = () => {
         <Section.Header className='--left'>Projects</Section.Header>
         <Section.Content className='--spread'>
           <CarouselProvider
-            totalSlides={3}
+            totalSlides={db.projects.length}
             isIntrinsicHeight={true}
           >
             <Slider>
               {db.projects.map( (project, index) => {
                 return(
-                  <Slide index={index} key={index}>
-                    <h4><a href={project.link}>{project.name}</a></h4>
-                    <Image src={project.image} width={710} height={503}/>
+                  <Slide index={index} key={index} className=''>
+                    <Project>
+                      <a href={project.link}>
+                        <Image src={project.image} width={710} height={503}/>
+                        <Project.Title>{project.name}</Project.Title>
+                      </a>
+                      <Project.Desc>{project.desc}</Project.Desc>
+                    </Project>
                   </Slide>
                 )
               })}
             </Slider>
-            <ButtonBack>Back</ButtonBack>
-            <ButtonNext>Next</ButtonNext>
+            <ButtonBack>ᐊ</ButtonBack>
+            <ButtonNext>ᐅ</ButtonNext>
           </CarouselProvider>
         </Section.Content>
       </Section>

@@ -41,9 +41,34 @@ Section.Content = styled.div`
   max-width: 120rem;
   margin: 0 auto;
   padding: 4rem 2rem;
+  position: relative;
   
   &.--spread {
     grid-template-columns: 1fr;
+  }
+  
+  .carousel__back-button, .carousel__next-button  {
+    background: none;
+    border: 0;
+    color: ${props => props.theme.colors.textContrast};
+    font-family: "DejaVu Sans", sans-serif;
+    font-size: 3rem;
+    position: absolute;
+    top: 58rem;
+    z-index: 999;
+    
+    &:hover {
+      transform: scale(1.2);
+    }
+    
+  }
+
+  .carousel__back-button {
+    left: 10rem;
+  }
+
+  .carousel__next-button {
+    right: 10rem;
   }
 `
 

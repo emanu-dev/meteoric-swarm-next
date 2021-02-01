@@ -33,7 +33,7 @@ Line.SeeMore = styled.p`
   opacity: 0;
   text-align: left;
   text-transform: uppercase;
-  top: 60vh;
+  top: 58vh;
   transition: opacity 300ms ease;
   position: fixed;
   

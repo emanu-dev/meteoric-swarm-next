@@ -1,34 +1,34 @@
 {
   "projects" : [
     {
-      "name" : "Project 1",
+      "name" : "Fake Nintendo Direct Leak Generator",
       "image" : "/img/projects/placeholder.jpg",
       "link" : "#",
-      "desc": ""
+      "desc": "lorem ipsum dolor sit amet"
     },
     {
       "name" : "Project 2",
       "image" : "/img/projects/placeholder.jpg",
       "link" : "#",
-      "desc": ""
+      "desc": "lorem ipsum dolor sit amet"
     },
     {
       "name" : "Project 3",
       "image" : "/img/projects/placeholder.jpg",
       "link" : "#",
-      "desc": ""
+      "desc": "lorem ipsum dolor sit amet"
     },
     {
       "name" : "Project 4",
       "image" : "/img/projects/placeholder.jpg",
       "link" : "#",
-      "desc": ""
+      "desc": "lorem ipsum dolor sit amet"
     },
     {
       "name" : "Project 5",
       "image" : "/img/projects/placeholder.jpg",
       "link" : "#",
-      "desc": ""
+      "desc": "lorem ipsum dolor sit amet"
     }
   ]
 }
