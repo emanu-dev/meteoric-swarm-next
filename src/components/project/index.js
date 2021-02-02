@@ -71,10 +71,22 @@ Project.Image = styled.div`
 `
 
 Project.Link = styled.a`
-  padding: 2rem 3rem;
+  background: rgba(0, 0, 0, .25);
+  box-shadow: 0 0 0 #ffffff;
+  color: ${props => props.theme.colors.textContrast};
   font-family: "DejaVu Sans", sans-serif;
+  font-size: 1.2rem;
   font-weight: 300;
+  padding: 1rem 2rem;
+  position: relative;
+  top: 2rem;
+  text-decoration: none;
   text-transform: uppercase;
+  transition: box-shadow 300ms ease;
+  
+  &:hover {
+    box-shadow: 2px 2px 0 #ffffff;
+  }
 `
 
 export default Project;

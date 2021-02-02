@@ -3,7 +3,7 @@ import '../public/fonts/fonts.css';
 
 const theme = {
   colors: {
-    primary: '#FFA800',
+    primary: '#7303c0',
     textContrast: '#FFFFFF',
     primaryGradient: 'linear-gradient(45deg, #03001e, #7303c0, #ec38bc, #fdeff9)',
   },

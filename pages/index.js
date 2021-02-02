@@ -119,6 +119,7 @@ const Home = () => {
                       <Project.Content>
                         <Project.Title>{project.name}</Project.Title>
                         <Project.Desc>{project.desc}</Project.Desc>
+                        <Project.Link href={project.link}>Check it out</Project.Link>
                       </Project.Content>
                       <Project.Image src={project.image} />
                     </Project>

@@ -21,17 +21,19 @@ const Line = styled.div`
   }
 
   &.--left {
-    transform: translate(-50vw) translate(20px);
+    transform: translate(-50vw) translate(60px);
     
     @media screen and (max-width: 600px) {
+      transform: translate(-50vw) translate(20px);
       width: 1px;
     }    
   }
 
   &.--right {
-    transform: translate(50vw) translate(-20px);
+    transform: translate(50vw) translate(-60px);
     
     @media screen and (max-width: 600px) {
+      transform: translate(50vw) translate(-20px);
       width: 1px;
     }    
   }
