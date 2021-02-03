@@ -73,6 +73,7 @@ Section.Content = styled.div`
   }
   
   .carousel__dot-group  {
+    cursor: none;
     display: inline;
     position: relative;
     top: -1rem;
@@ -86,6 +87,7 @@ Section.Content = styled.div`
     
     .carousel__dot {
       background: linear-gradient(45deg, #654ea3, #eaafc8);
+      cursor: none;
       opacity: .25;
       border: 0;
       margin-left: .5rem;

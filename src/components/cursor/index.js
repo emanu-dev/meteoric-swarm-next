@@ -23,10 +23,19 @@ const Cursor = () => {
     setMousePosition({x: e.clientX, y: e.clientY + window.scrollY});
   }
 
+  const handleScroll = () => {
+    setMousePosition({x: 0, y: 0});
+    console.log('handle scroll is running');
+  }
+
   useEffect(() => {
     window.addEventListener("mousemove", updateMousePosition);
+    window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("mousemove", updateMousePosition);
+    return () => {
+      window.removeEventListener("mousemove", updateMousePosition);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
