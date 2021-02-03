@@ -12,6 +12,7 @@ const theme = {
 const GlobalStyle = createGlobalStyle`
 
   html {
+    cursor: none;
     font-size: 10px;
   }
 

@@ -11,6 +11,8 @@ import Section from '../src/components/section'
 import sectionsHandler from '../src/utils/sectionsHandler'
 import Title from '../src/components/title'
 import Project from "../src/components/project";
+import Text from "../src/components/text";
+import Cursor from "../src/components/cursor";
 
 const Debug = styled.div`
   background-color: #2c2c2c;
@@ -20,36 +22,6 @@ const Debug = styled.div`
   position: fixed;
   text-transform: uppercase;
   z-index: 9999;
-`
-
-const Text = styled.div`
-  align-self: stretch;
-  color: ${props => props.theme.colors.textContrast};
-  display: flex;
-  flex-direction: column;
-`
-Text.Header = styled.h3`
-  color: ${props => props.theme.colors.primary};
-  font-family: 'Atkinson Hyperlegible', sans-serif;
-  font-size: 7rem;
-  line-height: 90%;
-  margin: 0;
-  text-transform: uppercase;
-
-  @media screen and (max-width: 600px) {
-    font-size: 4rem;  
-  }
-`
-Text.Body = styled.p`
-  color: ${props => props.theme.colors.textContrast};
-  font-family: 'DejaVuSans', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 300;
-  line-height: 120%;
-
-  @media screen and (max-width: 600px) {
-    font-size: 1.6rem;
-  }  
 `
 
 const Home = () => {
@@ -69,6 +41,7 @@ const Home = () => {
 
   return (
     <Main ref={mainComponent}>
+      <Cursor />
       <Debug ref={debugElement}>Debug</Debug>
       <Line ref={lineElement} className='--center' />
       <Section.Main>

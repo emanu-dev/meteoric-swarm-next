@@ -72,6 +72,7 @@ Project.Image = styled.div`
 
 Project.Link = styled.a`
   background: rgba(0, 0, 0, .25);
+  border: 1px solid rgba(255, 255, 255, .3);
   box-shadow: 0 0 0 #ffffff;
   color: ${props => props.theme.colors.textContrast};
   font-family: "DejaVu Sans", sans-serif;

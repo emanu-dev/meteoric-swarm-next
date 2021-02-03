@@ -7,11 +7,13 @@
     "start": "next start"
   },
   "dependencies": {
+    "@svgr/webpack": "^5.5.0",
     "next": "latest",
     "pure-react-carousel": "^1.27.6",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-is": "^16.8.0",
+    "react-spring": "^8.0.27",
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
