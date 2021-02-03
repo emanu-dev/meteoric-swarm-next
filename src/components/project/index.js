@@ -75,6 +75,7 @@ Project.Link = styled.a`
   border: 1px solid rgba(255, 255, 255, .3);
   box-shadow: 0 0 0 #ffffff;
   color: ${props => props.theme.colors.textContrast};
+  cursor: none;
   font-family: "DejaVu Sans", sans-serif;
   font-size: 1.2rem;
   font-weight: 300;

@@ -2,14 +2,18 @@ import React, {useState, useEffect} from "react";
 import CursorSvg from '../../cursors/cursor-regular.svg';
 import styled from "styled-components";
 
-//please convert this to transform translate!
-
 const Wrapper = styled.div`
   position: absolute;
   pointer-events: none;
-  left: 0px;
+  left: 0;
+  opacity: 0;
   top: 0;
+  transition: opacity .6s ease;
   z-index: 999999;
+  
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `
 
 const Cursor = () => {
@@ -26,7 +30,7 @@ const Cursor = () => {
   }, []);
 
   return (
-    <Wrapper style={{left: `${mousePosition.x - 32}px`, top: `${mousePosition.y - 32}px`}}>
+    <Wrapper style={{opacity: Math.sign(mousePosition.x+mousePosition.y) ,transform: `translate(${mousePosition.x - 32}px, ${mousePosition.y - 32}px)`}}>
       <CursorSvg />
     </Wrapper>
   )
