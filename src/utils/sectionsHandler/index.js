@@ -27,6 +27,13 @@ const updateWindowSize = (mainComponent, lineElement) => {
 }
 
 const updateSectionsVisibility = (lineElement, seeMoreElement) => {
+
+  if (getSectionNumbering() > 1) {
+    seeMoreElement.current.innerHTML = 'Find Me';
+  }else {
+    seeMoreElement.current.innerHTML = 'See<br/>More<br/> ᐁ';
+  }
+
   if (!isWithinSections() || getSectionNumbering() === 0) {
     lineElement.current.classList.remove('--right', '--left');
     lineElement.current.classList.add('--center');

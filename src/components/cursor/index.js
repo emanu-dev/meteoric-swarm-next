@@ -39,7 +39,7 @@ const Cursor = () => {
   }, []);
 
   return (
-    <Wrapper style={{opacity: Math.sign(mousePosition.x+mousePosition.y) ,transform: `translate(${mousePosition.x - 32}px, ${mousePosition.y - 32}px)`}}>
+    <Wrapper style={{opacity: Math.sign(mousePosition.x+mousePosition.y), transform: `translate(${mousePosition.x - 32}px, ${mousePosition.y - 32}px)`}}>
       <CursorSvg />
     </Wrapper>
   )

@@ -5,6 +5,10 @@ import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Dot, DotGroup 
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import db from '../src/db.json';
 
+import IconLinkedin from '../src/icons/iconLinkedin.svg';
+import IconGithub from '../src/icons/iconGithub.svg';
+import IconCodepen from '../src/icons/iconCodepen.svg';
+
 import Main from '../src/components/main'
 import Line from '../src/components/line'
 import Section from '../src/components/section'
@@ -13,6 +17,7 @@ import Title from '../src/components/title'
 import Project from "../src/components/project";
 import Text from "../src/components/text";
 import Cursor from "../src/components/cursor";
+import Social from "../src/components/social";
 
 const Debug = styled.div`
   background-color: #2c2c2c;
@@ -34,6 +39,7 @@ const Home = () => {
   useEffect(() => {
     window.addEventListener("scroll", () => {sectionsHandler.handleScroll(debugElement, lineElement, seeMoreElement)});
     sectionsHandler.updateWindowSize(mainComponent, lineElement);
+
     return () => {
       window.removeEventListener("scroll", () => {sectionsHandler.handleScroll(debugElement, lineElement, seeMoreElement)});
     };
@@ -107,6 +113,11 @@ const Home = () => {
       <Section>
         <Section.Header className='--right'>More</Section.Header>
       </Section>
+      <Social>
+        <IconLinkedin />
+        <IconCodepen />
+        <IconGithub />
+      </Social>
     </Main>
   )
 }
