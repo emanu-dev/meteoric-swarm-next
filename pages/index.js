@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 import Image from 'next/image';
 import React, {useEffect, useRef} from 'react';
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Dot, DotGroup } from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
 import db from '../src/db.json';
 
 import IconLinkedin from '../src/icons/iconLinkedin.svg';
@@ -14,7 +12,7 @@ import Line from '../src/components/line'
 import Section from '../src/components/section'
 import sectionsHandler from '../src/utils/sectionsHandler'
 import Title from '../src/components/title'
-import Project from "../src/components/project";
+import ProjectSlider from "../src/components/project";
 import Text from "../src/components/text";
 import Cursor from "../src/components/cursor";
 import Social from "../src/components/social";
@@ -86,14 +84,15 @@ const Home = () => {
       <Section>
         <Section.Header className='--left'>Projects</Section.Header>
         <Section.Content className='--full'>
-          <Project>
-            <Project.Content>
-              <Project.Title>{db.projects[0].name}</Project.Title>
-              <Project.Desc>{db.projects[0].desc}</Project.Desc>
-              <Project.Link href={db.projects[0].link}>Check it out</Project.Link>
-            </Project.Content>
-            <Project.Image src={db.projects[0].image} />
-          </Project>
+          {/*<Project>*/}
+          {/*  <Project.Content>*/}
+          {/*    <Project.Title>{db.projects[0].name}</Project.Title>*/}
+          {/*    <Project.Desc>{db.projects[0].desc}</Project.Desc>*/}
+          {/*    <Project.Link href={db.projects[0].link}>Check it out</Project.Link>*/}
+          {/*  </Project.Content>*/}
+          {/*  <Project.Image src={db.projects[0].image} />*/}
+          {/*</Project>*/}
+          <ProjectSlider.Wrapper db={db}/>
         </Section.Content>
       </Section>
       <Section>

@@ -1,6 +1,19 @@
 import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Project = styled.div`
+const ProjectSlider = styled.div`
+  -webkit-overflow-scrolling: touch;
+  height: 100%;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  max-width: 140rem;
+  width: 80%;
+`;
+
+ProjectSlider.Slide = styled.div`
+  scroll-snap-align: start;
   color: ${props => props.theme.colors.textContrast};
   display: flex;
   justify-content: flex-start;
@@ -8,7 +21,8 @@ const Project = styled.div`
   max-width: 140rem;
   padding: 0 5rem;
   position: relative;
-  width: 80%;
+  width: 100%;
+  flex-shrink: 0;
 
   @media screen and (max-width: 1000px) {
     display: flex;
@@ -16,9 +30,9 @@ const Project = styled.div`
     justify-content: flex-end;
     padding: 1rem 0;
   }
-`
+`;
 
-Project.Content = styled.div`
+ProjectSlider.Content = styled.div`
   position: relative;
   height: 50rem;
   max-width: 60rem;
@@ -29,7 +43,7 @@ Project.Content = styled.div`
   }  
 `
 
-Project.Title = styled.h4`
+ProjectSlider.Title = styled.h4`
   font-family: "Atkinson Hyperlegible", sans-serif;
   font-size: 8rem;
   line-height: 110%;
@@ -38,7 +52,7 @@ Project.Title = styled.h4`
   text-shadow: 2px 2px 2px #000000;
 `
 
-Project.Desc = styled.p`
+ProjectSlider.Desc = styled.p`
   font-family: "DejaVu Sans", sans-serif;
   font-size: 2rem;
   font-weight: 300;
@@ -53,7 +67,7 @@ Project.Desc = styled.p`
   
 `
 
-Project.Image = styled.div`
+ProjectSlider.Image = styled.div`
   background: url("${props => props.src}") no-repeat center/cover;
   height: 100%;
   right: 0;
@@ -69,7 +83,7 @@ Project.Image = styled.div`
   }
 `
 
-Project.Link = styled.a`
+ProjectSlider.Link = styled.a`
   background: rgba(0, 0, 0, .25);
   border: 1px solid rgba(255, 255, 255, .3);
   box-shadow: 0 0 0 #ffffff;
@@ -89,5 +103,25 @@ Project.Link = styled.a`
     box-shadow: 2px 2px 0 #ffffff;
   }
 `
+ProjectSlider.Wrapper = props => {
+  return (
+  <ProjectSlider>
+    {props.db.projects.map((project, index) => (
+      <ProjectSlider.Slide key={index}>
+        <ProjectSlider.Content>
+          <ProjectSlider.Title>{project.name}</ProjectSlider.Title>
+          <ProjectSlider.Desc>{project.desc}</ProjectSlider.Desc>
+          <ProjectSlider.Link href={project.link}>Check it out</ProjectSlider.Link>
+        </ProjectSlider.Content>
+        <ProjectSlider.Image src={project.image} />
+      </ProjectSlider.Slide>
+    ))}
+  </ProjectSlider>
+  );
+}
 
-export default Project;
+ProjectSlider.Wrapper.propTypes = {
+  db: PropTypes.object.isRequired,
+}
+
+export default ProjectSlider;
