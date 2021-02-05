@@ -7,7 +7,7 @@ const Line = styled.div`
   left: 50vw;
   opacity: .25;
   transition: transform 300ms ease;
-  top: 60vh;
+  top: 60rem;
   width: 2px;
   z-index: 999;
 
@@ -47,12 +47,12 @@ Line.SeeMore = styled.p`
   opacity: 0;
   text-align: left;
   text-transform: uppercase;
-  top: 58vh;
+  top: 58rem;
   transition: opacity 300ms ease;
   position: fixed;
 
   @media screen and (max-width: 600px) {
-    font-size: 1.6rem;
+    font-size: 16px;
     left: 54%;
   }
 

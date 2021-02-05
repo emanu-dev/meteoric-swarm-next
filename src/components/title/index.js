@@ -24,20 +24,20 @@ Title.Text = styled.p`
     font-size: 9.5rem;
     line-height: 9.9rem;
 
-    @media screen and (max-width: 600px) {
-      font-size: 3.8rem;
-      line-height: 3.5rem;      
-    }
+    //@media screen and (max-width: 600px) {
+    //  font-size: 3.8rem;
+    //  line-height: 3.5rem;      
+    //}
   }
 
   &.--size-lg {
     font-size: 18.6rem;
     line-height: 19.2rem;
 
-    @media screen and (max-width: 600px) {
-      font-size: 7.4rem;
-      line-height: 6.5rem;      
-    }
+    //@media screen and (max-width: 600px) {
+    //  font-size: 7.4rem;
+    //  line-height: 6.5rem;      
+    //}
   }
   
   &.--glitched {
@@ -56,6 +56,7 @@ Title.Text = styled.p`
       width: 100%;
       opacity: 1;
     }
+
     &:after {
       animation: glitch .3s cubic-bezier(.25, .46, .45, .94) reverse both infinite;
       z-index: -2;
@@ -98,10 +99,10 @@ Title.Tags.Tag = styled.span`
   font-size: 7rem;
   line-height: 7.4rem;
 
-  @media screen and (max-width: 600px) {
-    font-size: 2.8rem;
-    line-height: 3.5rem;  
-  }
+  //@media screen and (max-width: 600px) {
+  //  font-size: 2.8rem;
+  //  line-height: 3.5rem;  
+  //}
 `
 
 export default Title;

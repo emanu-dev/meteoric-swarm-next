@@ -14,12 +14,18 @@ const Project = styled.div`
     max-width: none;
   }
 `
+Project.Wrapper = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`
+
 Project.Content = styled.div`
   height: 50rem;
   width: 60rem;
   
   @media screen and (max-width: 600px) {
-    margin-top: 28rem;
+    margin-top: 280px;
     width: 80vw;
   }
 `
@@ -31,25 +37,21 @@ Project.Title = styled.h4`
   margin: 0 0 1rem 0;
   text-align: left;
   text-shadow: 2px 2px 2px #000000;
-
-  @media screen and (max-width: 600px) {
-    font-size: 3rem;
-  }
   
 `
 
 Project.Desc = styled.p`
   font-family: "DejaVu Sans", sans-serif;
-  font-size: 2rem;
+  font-size: 20px;
   font-weight: 300;
   margin: 0 0 1rem 0;
   padding: 0 .5rem;
   text-align: left;
-  width: 20rem;
+  width: 200px;
 
   @media screen and (max-width: 600px) {
-    font-size: 1.6rem;
-  } 
+    width: 100%;  
+  }
 `
 
 Project.Image = styled.div`
@@ -65,7 +67,6 @@ Project.Image = styled.div`
   @media screen and (max-width: 600px) {
     width: 80vw;
     left: 41%;
-    height: 30rem;
     background-position: center;
   }
 `
@@ -77,11 +78,11 @@ Project.Link = styled.a`
   color: ${props => props.theme.colors.textContrast};
   cursor: none;
   font-family: "DejaVu Sans", sans-serif;
-  font-size: 1.2rem;
+  font-size: 12px;
   font-weight: 300;
-  padding: 1rem 2rem;
+  padding: 10px 20px;
   position: relative;
-  top: 2rem;
+  top: 20px;
   text-decoration: none;
   text-transform: uppercase;
   transition: box-shadow 300ms ease;

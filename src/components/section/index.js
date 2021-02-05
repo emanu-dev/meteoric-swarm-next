@@ -10,7 +10,7 @@ const Section = styled.section`
   transition: opacity 300ms ease;
 
   @media screen and (max-width: 600px) {
-    padding: 2rem 4rem;   
+    padding: 3rem 6rem;   
   }
   
   &.--active {
@@ -34,10 +34,6 @@ Section.Header = styled.h3`
   font-weight: 300;
   text-transform: uppercase;
   opacity: .25;
-
-  @media screen and (max-width: 600px) {
-    font-size: 2rem;  
-  }  
   
   &.--left {
     text-align: left;
@@ -80,8 +76,7 @@ Section.Content = styled.div`
     left: 3rem;
 
     @media screen and (max-width: 600px) {
-      top: -25rem;
-      left: 45%;
+      position: initial;
       z-index: 9999;
     }
     
@@ -91,8 +86,8 @@ Section.Content = styled.div`
       opacity: .25;
       border: 0;
       margin-left: .5rem;
-      width: 3rem;
-      height: 1rem;
+      width: 30px;
+      height: 10px;
       
       &.carousel__dot--selected {
         background: linear-gradient(45deg, #7303c0, #ec38bc);

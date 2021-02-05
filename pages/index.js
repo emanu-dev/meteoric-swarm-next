@@ -90,23 +90,25 @@ const Home = () => {
             totalSlides={db.projects.length}
             isIntrinsicHeight={true}
           >
-            <Slider>
-              {db.projects.map( (project, index) => {
-                return(
-                  <Slide index={index} key={index} className=''>
-                    <Project>
-                      <Project.Content>
-                        <Project.Title>{project.name}</Project.Title>
-                        <Project.Desc>{project.desc}</Project.Desc>
-                        <Project.Link href={project.link}>Check it out</Project.Link>
-                      </Project.Content>
-                      <Project.Image src={project.image} />
-                    </Project>
-                  </Slide>
-                )
-              })}
-            </Slider>
-            <DotGroup />
+            <Project.Wrapper>
+              <Slider>
+                {db.projects.map( (project, index) => {
+                  return(
+                    <Slide index={index} key={index} className=''>
+                      <Project>
+                        <Project.Content>
+                          <Project.Title>{project.name}</Project.Title>
+                          <Project.Desc>{project.desc}</Project.Desc>
+                          <Project.Link href={project.link}>Check it out</Project.Link>
+                        </Project.Content>
+                        <Project.Image src={project.image} />
+                      </Project>
+                    </Slide>
+                  )
+                })}
+              </Slider>
+              <DotGroup />
+            </Project.Wrapper>
           </CarouselProvider>
         </Section.Content>
       </Section>
