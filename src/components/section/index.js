@@ -30,7 +30,7 @@ Section.Main = styled.section`
 
 Section.Header = styled.h3`
   font-family: 'DejaVuSans', sans-serif;
-  font-size: 3rem;
+  font-size: 25px;
   font-weight: 300;
   text-transform: uppercase;
   opacity: .25;
@@ -51,49 +51,26 @@ Section.Content = styled.div`
   margin: 0 auto;
   padding: 4rem 2rem;
   position: relative;
-
+  
   @media screen and (max-width: 600px) {
     align-items: center;
     display: flex;
     flex-direction: column;
+    height: 100%;
   }
-  
-  &.--spread {
-    justify-items: center;
-    grid-template-columns: 1fr;
-    max-width: none;
 
-    @media screen and (max-width: 600px) {
-      max-width: 100vw;
-    }
-  }
-  
-  .carousel__dot-group  {
-    cursor: none;
-    display: inline;
-    position: relative;
-    top: -1rem;
-    left: 3rem;
+  &.--full {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
 
-    @media screen and (max-width: 600px) {
-      position: initial;
-      z-index: 9999;
-    }
-    
-    .carousel__dot {
-      background: linear-gradient(45deg, #654ea3, #eaafc8);
-      cursor: none;
-      opacity: .25;
-      border: 0;
-      margin-left: .5rem;
-      width: 30px;
-      height: 10px;
-      
-      &.carousel__dot--selected {
-        background: linear-gradient(45deg, #7303c0, #ec38bc);
-        opacity: .8;
-      }
-    }
+    @media screen and (max-width: 1000px) {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }    
   }
 `
 

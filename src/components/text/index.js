@@ -13,10 +13,6 @@ Text.Header = styled.h3`
   line-height: 90%;
   margin: 0;
   text-transform: uppercase;
-
-  @media screen and (max-width: 600px) {
-    font-size: 4rem;  
-  }
 `
 Text.Body = styled.p`
   color: ${props => props.theme.colors.textContrast};
@@ -24,10 +20,6 @@ Text.Body = styled.p`
   font-size: 2.2rem;
   font-weight: 300;
   line-height: 120%;
-
-  @media screen and (max-width: 600px) {
-    font-size: 1.6rem;
-  }  
 `
 
 export default Text;

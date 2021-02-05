@@ -23,7 +23,7 @@ const updateWindowSize = (mainComponent, lineElement) => {
 
   pageHeight = SECTION_HEIGHT*sectionCount+(SECTION_HEIGHT/4);
   mainComponent.current.style.height = `${pageHeight}px`;
-  lineElement.current.style.height = `${pageHeight-SECTION_HEIGHT}px`;
+  lineElement.current.style.height = `${pageHeight}px`;
 }
 
 const updateSectionsVisibility = (lineElement, seeMoreElement) => {

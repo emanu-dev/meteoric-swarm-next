@@ -11,15 +11,19 @@ const theme = {
 
 const GlobalStyle = createGlobalStyle`
 
+  *{
+    box-sizing: border-box;  
+  }
+  
   html {
     cursor: none;
     font-size: 10px;
     
-    @media screen and (min-width: 681px) and (max-width: 1000px) {
+    @media screen and (min-width: 701px) and (max-width: 1000px) {
       font-size: 8px;  
     }
 
-    @media screen and (min-width: 321px) and (max-width: 680px){
+    @media screen and (min-width: 321px) and (max-width: 700px){
       font-size: 5px;
     }
 

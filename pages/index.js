@@ -85,31 +85,15 @@ const Home = () => {
       </Section>
       <Section>
         <Section.Header className='--left'>Projects</Section.Header>
-        <Section.Content className='--spread'>
-          <CarouselProvider
-            totalSlides={db.projects.length}
-            isIntrinsicHeight={true}
-          >
-            <Project.Wrapper>
-              <Slider>
-                {db.projects.map( (project, index) => {
-                  return(
-                    <Slide index={index} key={index} className=''>
-                      <Project>
-                        <Project.Content>
-                          <Project.Title>{project.name}</Project.Title>
-                          <Project.Desc>{project.desc}</Project.Desc>
-                          <Project.Link href={project.link}>Check it out</Project.Link>
-                        </Project.Content>
-                        <Project.Image src={project.image} />
-                      </Project>
-                    </Slide>
-                  )
-                })}
-              </Slider>
-              <DotGroup />
-            </Project.Wrapper>
-          </CarouselProvider>
+        <Section.Content className='--full'>
+          <Project>
+            <Project.Content>
+              <Project.Title>{db.projects[0].name}</Project.Title>
+              <Project.Desc>{db.projects[0].desc}</Project.Desc>
+              <Project.Link href={db.projects[0].link}>Check it out</Project.Link>
+            </Project.Content>
+            <Project.Image src={db.projects[0].image} />
+          </Project>
         </Section.Content>
       </Section>
       <Section>
