@@ -30,5 +30,45 @@
       "link" : "#",
       "desc": "lorem ipsum dolor sit amet"
     }
-  ]
+  ],
+  "resume" : {
+    "timeline" : [
+      {
+        "period" : "2017 - CURRENT",
+        "title" : "DESIGN SPECIALIST/FRONT END DEVELOPER",
+        "place" : "Entrecliques - Digital Media Intelligence",
+        "location" : ""
+      },
+      {
+        "period" : "2013 - 2018",
+        "title" : "UNDERGRAD. DEG. - SYSTEM ANALYSIS AND DEV.",
+        "place" : "College of Technology - FATEC",
+        "location" : "ITAPETININGA, SAO PAULO - BRAZIL"
+      },
+      {
+        "period" : "2014 - 2015",
+        "title" : "NON-DEGREE PROGRAM - SOFTWARE ENG.",
+        "place" : "Auburn University",
+        "location" : "AUBURN, ALABAMA - USA"
+      }
+    ],
+    "skills" : [
+      {
+        "title" : "Layout design",
+        "value" : "80"
+      },
+      {
+        "title" : "HTML/CSS",
+        "value" : "80"
+      },
+      {
+        "title" : "React",
+        "value" : "65"
+      },
+      {
+        "title" : "3D Modelling",
+        "value" : "50"
+      }
+    ]
+  }
 }

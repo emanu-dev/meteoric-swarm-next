@@ -16,10 +16,12 @@ import ProjectSlider from "../src/components/project";
 import Text from "../src/components/text";
 import Cursor from "../src/components/cursor";
 import Timeline from "../src/components/timeline";
+import SkillGroup from "../src/components/skillgroup";
 
 const Debug = styled.div`
   background-color: #2c2c2c;
   color: #fff;
+  display: none;
   font-family: sans-serif;
   padding: 10px 15px;
   position: fixed;
@@ -88,28 +90,27 @@ const Home = () => {
       </Section>
       <Section>
         <Section.Header className='--right'>Resume</Section.Header>
-          <Timeline>
-            <Timeline.Item>
-              <Text.Small>2017 - current</Text.Small>
-              <Text.SmallHeader>Design Specialist/Front End Developer</Text.SmallHeader>
-              <Text.Body>Entrecliques - Digital Media Intelligence</Text.Body>
-            </Timeline.Item>
-            <Timeline.Item>
-              <Text.Small>2013 - 2018</Text.Small>
-              <Text.SmallHeader>Undergrad. Deg. - System Analysis and Dev.</Text.SmallHeader>
-              <Text.Body>College of Technology - FATEC</Text.Body>
-              <Text.Small><em>Itapetininga, Sao Paulo - Brazil</em></Text.Small>
-            </Timeline.Item>
-            <Timeline.Item>
-              <Text.Small>2014 - 2015</Text.Small>
-              <Text.SmallHeader>Non-degree program - Software Eng.</Text.SmallHeader>
-              <Text.Body>Auburn University</Text.Body>
-              <Text.Small><em>Auburn, Alabama - USA</em></Text.Small>
-            </Timeline.Item>
-          </Timeline>
-        <div>
-
-        </div>
+          <Section.Content>
+            <Timeline>
+              {db.resume.timeline.map((item, index) => (
+                <Timeline.Item key={index}>
+                  <Text.Small>{item.period}</Text.Small>
+                  <Text.SmallHeader>{item.title}</Text.SmallHeader>
+                  <Text.Body>{item.place}</Text.Body>
+                  {item.location !== "" && <Text.Small><em>{item.location}</em></Text.Small>}
+                </Timeline.Item>
+              ))}
+            </Timeline>
+          <SkillGroup>
+            <Text.SmallHeader>skills</Text.SmallHeader>
+            {db.resume.skills.map((skill, index) => (
+              <SkillGroup.Item key={index}>
+                <Text.Small>{skill.title}</Text.Small>
+                <SkillGroup.Progress value={skill.value} />
+              </SkillGroup.Item>
+            ))}
+          </SkillGroup>
+        </Section.Content>
       </Section>
       <Section>
         <Section.Header className='--left'>Projects</Section.Header>
