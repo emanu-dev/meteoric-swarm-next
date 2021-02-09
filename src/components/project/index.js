@@ -1,16 +1,67 @@
 import styled from "styled-components";
 import React from 'react';
 import PropTypes from 'prop-types';
+import ScrollContainer from 'react-indiana-drag-scroll'
 
 const ProjectSlider = styled.div`
   -webkit-overflow-scrolling: touch;
-  height: 100%;
   display: flex;
+  height: 100%;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    margin-top: 2rem;
+    width: 10px;
+    height: 20px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${props => props.theme.colors.primary};
+    border-radius: 0;
+  }
+  &::-webkit-scrollbar-track {
+    background: ${props => props.theme.colors.primaryGradient};
+  }  
+  
+`;
+
+ProjectSlider.Nav = styled.div`
+  height: 100%;
   max-width: 140rem;
   width: 80%;
-`;
+  
+  .scroll-container {
+    -webkit-overflow-scrolling: touch;
+    display: flex;
+    height: 100%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    width: 100%;
+
+    &::-webkit-scrollbar {
+      margin-top: 2rem;
+      width: 10px;
+      height: 20px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: ${props => props.theme.colors.primary};
+      border-radius: 0;
+    }
+    &::-webkit-scrollbar-track {
+      background: ${props => props.theme.colors.primaryGradient};
+    }
+  }
+`
+
+ProjectSlider.Nav.Button = styled.a`
+  background-color: ${props => props.theme.colors.primary};
+  display: inline-block;
+  height: 10px;
+  width: 20px;
+`
 
 ProjectSlider.Slide = styled.div`
   scroll-snap-align: start;
@@ -23,6 +74,10 @@ ProjectSlider.Slide = styled.div`
   position: relative;
   width: 100%;
   flex-shrink: 0;
+  
+  &:not(:last-child)  {
+    margin-right: 100px;
+  }
 
   @media screen and (max-width: 1000px) {
     display: flex;
@@ -39,7 +94,8 @@ ProjectSlider.Content = styled.div`
   z-index: 9;
 
   @media screen and (max-width: 1000px) {
-    top: -10%;
+    padding-left: 2rem;
+    top: -5%;
   }  
 `
 
@@ -105,18 +161,20 @@ ProjectSlider.Link = styled.a`
 `
 ProjectSlider.Wrapper = props => {
   return (
-  <ProjectSlider>
-    {props.db.projects.map((project, index) => (
-      <ProjectSlider.Slide key={index}>
-        <ProjectSlider.Content>
-          <ProjectSlider.Title>{project.name}</ProjectSlider.Title>
-          <ProjectSlider.Desc>{project.desc}</ProjectSlider.Desc>
-          <ProjectSlider.Link href={project.link}>Check it out</ProjectSlider.Link>
-        </ProjectSlider.Content>
-        <ProjectSlider.Image src={project.image} />
-      </ProjectSlider.Slide>
-    ))}
-  </ProjectSlider>
+    <ProjectSlider.Nav>
+        <ProjectSlider>
+        {props.db.projects.map((project, index) => (
+          <ProjectSlider.Slide key={index} id={`slide-${index}`}>
+            <ProjectSlider.Content>
+              <ProjectSlider.Title>{project.name}</ProjectSlider.Title>
+              <ProjectSlider.Desc>{project.desc}</ProjectSlider.Desc>
+              <ProjectSlider.Link href={project.link}>Check it out</ProjectSlider.Link>
+            </ProjectSlider.Content>
+            <ProjectSlider.Image src={project.image} />
+          </ProjectSlider.Slide>
+        ))}
+        </ProjectSlider>
+    </ProjectSlider.Nav>
   );
 }
 

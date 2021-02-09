@@ -15,7 +15,6 @@ import Title from '../src/components/title'
 import ProjectSlider from "../src/components/project";
 import Text from "../src/components/text";
 import Cursor from "../src/components/cursor";
-import Social from "../src/components/social";
 
 const Debug = styled.div`
   background-color: #2c2c2c;
@@ -33,13 +32,14 @@ const Home = () => {
   const seeMoreElement = useRef(null);
   const mainComponent = useRef(null);
   const debugElement = useRef(null)
+  const socialElement = useRef(null);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {sectionsHandler.handleScroll(debugElement, lineElement, seeMoreElement)});
+    window.addEventListener("scroll", () => {sectionsHandler.handleScroll(debugElement, lineElement, seeMoreElement, socialElement)});
     sectionsHandler.updateWindowSize(mainComponent, lineElement);
 
     return () => {
-      window.removeEventListener("scroll", () => {sectionsHandler.handleScroll(debugElement, lineElement, seeMoreElement)});
+      window.removeEventListener("scroll", () => {sectionsHandler.handleScroll(debugElement, lineElement, seeMoreElement, socialElement)});
     };
   });
 
@@ -60,6 +60,11 @@ const Home = () => {
           <Line.SeeMore ref={seeMoreElement} className='--active'>
             See<br/>More<br/> ᐁ
           </Line.SeeMore>
+          <Line.Social ref={socialElement}>
+            <Line.Social.Icon link='https://br.linkedin.com/in/emanuel-prado'><IconLinkedin /></Line.Social.Icon>
+            <Line.Social.Icon link='https://codepen.io/emanu-fer'><IconCodepen /></Line.Social.Icon>
+            <Line.Social.Icon link='https://github.com/emanu-dev'><IconGithub /></Line.Social.Icon>
+          </Line.Social>
         </Title>
       </Section.Main>
       <Section>
@@ -98,11 +103,6 @@ const Home = () => {
       <Section>
         <Section.Header className='--right'>More</Section.Header>
       </Section>
-      <Social>
-        <IconLinkedin />
-        <IconCodepen />
-        <IconGithub />
-      </Social>
     </Main>
   )
 }

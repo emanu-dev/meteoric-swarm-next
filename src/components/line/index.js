@@ -1,8 +1,10 @@
 import styled from 'styled-components';
+import React from 'react';
 
 const Line = styled.div`
   position: absolute;
-  background-color: #fff;
+  background: rgb(255,255,255);
+  background: linear-gradient(180deg, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%);
   height: 0px;
   left: 50vw;
   opacity: .25;
@@ -60,5 +62,32 @@ Line.SeeMore = styled.p`
     opacity: 1;  
   }
 `
+
+Line.Social = styled.div`
+  display: flex;
+  opacity: 0;
+  transition: opacity 300ms ease;
+  position: fixed;
+  left: 52%;
+  top: 65rem;
+  visibility: hidden;
+
+  &.--active {
+    opacity: 1;
+  }
+
+  &.--visible {
+    visibility: visible;
+  }  
+  
+`
+
+Line.Social.Icon = props => {
+  return(
+    <a target='_blank' rel='noopener noreferrer' href={props.link}>
+      {props.children}
+    </a>
+  )
+}
 
 export default Line;
