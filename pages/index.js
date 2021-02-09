@@ -15,6 +15,7 @@ import Title from '../src/components/title'
 import ProjectSlider from "../src/components/project";
 import Text from "../src/components/text";
 import Cursor from "../src/components/cursor";
+import Timeline from "../src/components/timeline";
 
 const Debug = styled.div`
   background-color: #2c2c2c;
@@ -71,32 +72,48 @@ const Home = () => {
         <Section.Header className='--left'>About me</Section.Header>
         <Section.Content>
           <Text>
-            <Text.Header>Emanuel<br/>Prado</Text.Header>
+            <Text.Header>I'm Emanuel<br/>Prado</Text.Header>
             <Text.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text.Body>
           </Text>
-          <div>
+          <div className='test-border'>
             <Image
               src='/img/me.png'
-              width={588}
-              height={845}
+              width={450}
+              height={430}
+              alt='Emanuel Prado'
+              className='idk'
             />
           </div>
         </Section.Content>
       </Section>
       <Section>
-        <Section.Header className='--right'>Passions</Section.Header>
+        <Section.Header className='--right'>Resume</Section.Header>
+          <Timeline>
+            <Timeline.Item>
+              <Text.Small>2017 - current</Text.Small>
+              <Text.SmallHeader>Design Specialist/Front End Developer</Text.SmallHeader>
+              <Text.Body>Entrecliques - Digital Media Intelligence</Text.Body>
+            </Timeline.Item>
+            <Timeline.Item>
+              <Text.Small>2013 - 2018</Text.Small>
+              <Text.SmallHeader>Undergrad. Deg. - System Analysis and Dev.</Text.SmallHeader>
+              <Text.Body>College of Technology - FATEC</Text.Body>
+              <Text.Small><em>Itapetininga, Sao Paulo - Brazil</em></Text.Small>
+            </Timeline.Item>
+            <Timeline.Item>
+              <Text.Small>2014 - 2015</Text.Small>
+              <Text.SmallHeader>Non-degree program - Software Eng.</Text.SmallHeader>
+              <Text.Body>Auburn University</Text.Body>
+              <Text.Small><em>Auburn, Alabama - USA</em></Text.Small>
+            </Timeline.Item>
+          </Timeline>
+        <div>
+
+        </div>
       </Section>
       <Section>
         <Section.Header className='--left'>Projects</Section.Header>
         <Section.Content className='--full'>
-          {/*<Project>*/}
-          {/*  <Project.Content>*/}
-          {/*    <Project.Title>{db.projects[0].name}</Project.Title>*/}
-          {/*    <Project.Desc>{db.projects[0].desc}</Project.Desc>*/}
-          {/*    <Project.Link href={db.projects[0].link}>Check it out</Project.Link>*/}
-          {/*  </Project.Content>*/}
-          {/*  <Project.Image src={db.projects[0].image} />*/}
-          {/*</Project>*/}
           <ProjectSlider.Wrapper db={db}/>
         </Section.Content>
       </Section>

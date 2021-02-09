@@ -4,7 +4,9 @@ import '../public/fonts/fonts.css';
 const theme = {
   colors: {
     primary: '#7303c0',
+    secondary: '#9a7bb3',
     textContrast: '#FFFFFF',
+    textContrastShaded: 'rgba(255, 255, 255, .5)',
     primaryGradient: 'linear-gradient(45deg, #03001e, #7303c0, #ec38bc, #fdeff9)',
   },
 }

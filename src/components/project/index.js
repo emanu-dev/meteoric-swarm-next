@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import React from 'react';
 import PropTypes from 'prop-types';
-import ScrollContainer from 'react-indiana-drag-scroll'
 
 const ProjectSlider = styled.div`
   -webkit-overflow-scrolling: touch;
@@ -101,8 +100,8 @@ ProjectSlider.Content = styled.div`
 
 ProjectSlider.Title = styled.h4`
   font-family: "Atkinson Hyperlegible", sans-serif;
-  font-size: 8rem;
-  line-height: 110%;
+  font-size: clamp(42px, 8rem, 80px);
+  line-height: 100%;
   margin: 0 0 1rem 0;
   text-align: left;
   text-shadow: 2px 2px 2px #000000;
@@ -110,7 +109,7 @@ ProjectSlider.Title = styled.h4`
 
 ProjectSlider.Desc = styled.p`
   font-family: "DejaVu Sans", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(14px, 2rem, 20px);
   font-weight: 300;
   margin: 0 0 1rem 0;
   padding: 0 .5rem;
