@@ -12,57 +12,39 @@ const ProjectSlider = styled.div`
   width: 100%;
 
   &::-webkit-scrollbar {
-    margin-top: 2rem;
-    width: 10px;
-    height: 20px;
+    height: 10px;
   }
   &::-webkit-scrollbar-thumb {
     background: ${props => props.theme.colors.primary};
     border-radius: 0;
   }
   &::-webkit-scrollbar-track {
-    background: ${props => props.theme.colors.primaryGradient};
-  }  
-  
+    display: none;
+  }
 `;
 
 ProjectSlider.Nav = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   height: 100%;
   max-width: 140rem;
   width: 80%;
-  
-  .scroll-container {
-    -webkit-overflow-scrolling: touch;
-    display: flex;
-    height: 100%;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    width: 100%;
-
-    &::-webkit-scrollbar {
-      margin-top: 2rem;
-      width: 10px;
-      height: 20px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background: ${props => props.theme.colors.primary};
-      border-radius: 0;
-    }
-    &::-webkit-scrollbar-track {
-      background: ${props => props.theme.colors.primaryGradient};
-    }
-  }
 `
 
-ProjectSlider.Nav.Button = styled.a`
+ProjectSlider.Nav.Button = styled.label`
   background-color: ${props => props.theme.colors.primary};
   display: inline-block;
   height: 10px;
   width: 20px;
+  margin: 10px 0;
+  
+  &:not(:last-child)  {
+    margin-right: 10px;
+  }
 `
 
-ProjectSlider.Slide = styled.div`
+ProjectSlider.Slide = styled.label`
   scroll-snap-align: start;
   color: ${props => props.theme.colors.textContrast};
   display: flex;
@@ -160,19 +142,48 @@ ProjectSlider.Link = styled.a`
 `
 ProjectSlider.Wrapper = props => {
   return (
-    <ProjectSlider.Nav>
-        <ProjectSlider>
+    <ProjectSlider.Nav id='project-slider'>
+      <div style={{display:'none'}}>
+      {props.db.projects.map((project, index) => (
+        <input
+          type="radio"
+          name='slider'
+          id={`slide-${index}`}
+          key={index}
+          defaultChecked={index === 0}/>
+      ))}
+      </div>
+      <ProjectSlider id='project-slider-scroll'>
+      {props.db.projects.map((project, index) => (
+        <ProjectSlider.Slide
+          key={index}
+          id={`slide-${index}`}
+          htmlFor={`slide-${index}`}
+          className={`slider__item slider__item--${index}`}>
+          <ProjectSlider.Content>
+            <ProjectSlider.Title>{project.name}</ProjectSlider.Title>
+            <ProjectSlider.Desc>{project.desc}</ProjectSlider.Desc>
+            <ProjectSlider.Link href={project.link}>Check it out</ProjectSlider.Link>
+          </ProjectSlider.Content>
+          <ProjectSlider.Image src={project.image} />
+        </ProjectSlider.Slide>
+      ))}
+      </ProjectSlider>
+      <div>
         {props.db.projects.map((project, index) => (
-          <ProjectSlider.Slide key={index} id={`slide-${index}`}>
-            <ProjectSlider.Content>
-              <ProjectSlider.Title>{project.name}</ProjectSlider.Title>
-              <ProjectSlider.Desc>{project.desc}</ProjectSlider.Desc>
-              <ProjectSlider.Link href={project.link}>Check it out</ProjectSlider.Link>
-            </ProjectSlider.Content>
-            <ProjectSlider.Image src={project.image} />
-          </ProjectSlider.Slide>
+          <ProjectSlider.Nav.Button
+            key={index}
+            htmlFor={`slide-${index}`}
+            className={`bullets__item bullets__item--${index}`}
+            onClick={()=> {
+              document.getElementById('slide-4').scrollLeft = 0;
+              const slideWidth = document.getElementById('project-slider').offsetWidth;
+              document.getElementById('project-slider-scroll').scrollLeft = slideWidth * index;
+              console.log(slideWidth * index);
+            }}
+          />
         ))}
-        </ProjectSlider>
+      </div>
     </ProjectSlider.Nav>
   );
 }
