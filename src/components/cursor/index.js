@@ -17,15 +17,14 @@ const Wrapper = styled.div`
 `
 
 const Cursor = () => {
-  const [mousePosition, setMousePosition] = useState({x: 0, y: 0});
+  const [mousePosition, setMousePosition] = useState({x: -20, y: -20});
 
   const updateMousePosition = e => {
     setMousePosition({x: e.clientX, y: e.clientY + window.scrollY});
   }
 
   const handleScroll = () => {
-    setMousePosition({x: 0, y: 0});
-    console.log('handle scroll is running');
+    setMousePosition({x: -20, y: -20});
   }
 
   useEffect(() => {
