@@ -14,6 +14,7 @@ const Line = styled.div`
   z-index: 999;
 
   @media screen and (max-width: 600px) {
+    top: 100rem;
     width: 1px;
   } 
   
@@ -56,6 +57,7 @@ Line.SeeMore = styled.p`
   @media screen and (max-width: 600px) {
     font-size: 16px;
     left: 54%;
+    top: 100rem;
   }
 
   &.--active {
@@ -80,7 +82,12 @@ Line.Social = styled.div`
 
   &.--visible {
     visibility: visible;
-  }  
+  }
+
+  @media screen and (max-width: 600px) {
+    top: 108rem;
+    left: 52.5%
+  }
   
 `
 

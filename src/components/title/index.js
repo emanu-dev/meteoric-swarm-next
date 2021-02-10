@@ -1,11 +1,26 @@
 import styled from "styled-components";
+import React from "react";
+
+import SvgTitle from '../../assets/title.svg';
 
 const Title = styled.div`
-  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: 'Atkinson Hyperlegible', sans-serif;
+  margin-top: 5rem;
+  text-align: center;
+  
+  > svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 600px;
+    width: 80%;
+  }
+  
   
   @media screen and (max-width: 600px) {
-    margin-top: 10rem;  
+    margin-top: 25rem;  
   }
 `
 
@@ -93,5 +108,7 @@ Title.Tags.Tag = styled.span`
   font-size: 7rem;
   line-height: 7.4rem;
 `
+
+Title.Path = () => <SvgTitle />
 
 export default Title;
