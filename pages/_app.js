@@ -7,7 +7,7 @@ const theme = {
     secondary: '#9a7bb3',
     textContrast: '#FFFFFF',
     textContrastShaded: 'rgba(255, 255, 255, .5)',
-    primaryGradient: 'linear-gradient(45deg, #03001e, #7303c0, #ec38bc, #fdeff9)',
+    primaryGradient: 'linear-gradient(45deg,#40186b,#7303c0,#ec38bc,#fdeff9)',
   },
 }
 

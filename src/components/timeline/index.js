@@ -27,6 +27,12 @@ Timeline.Item = styled.div`
       left: -30px;
       position: absolute;
       width: 20px;
+      
+      @media screen and (max-width: 600px) {
+        height: 15px;
+        left: -24px;
+        width: 15px;        
+      }
     }
   }
 `

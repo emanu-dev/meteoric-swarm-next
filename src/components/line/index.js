@@ -71,9 +71,11 @@ Line.Social = styled.div`
   left: 52%;
   top: 65rem;
   visibility: hidden;
+  z-index: -99;
 
   &.--active {
     opacity: 1;
+    z-index: 1;
   }
 
   &.--visible {

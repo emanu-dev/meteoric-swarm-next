@@ -5,6 +5,16 @@ const SkillGroup = styled.div`
   display: flex;
   flex-direction: column;
   margin: 20px 0 0 0;
+
+  @media screen and (max-width: 600px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    
+    > h6 {
+      grid-column-start: span 2;
+    }
+  }
 `
 
 SkillGroup.Item = styled.div`
@@ -16,6 +26,10 @@ SkillGroup.Item = styled.div`
     margin: 15px 0 5px 0;
     text-transform: uppercase;
   }
+  
+  @media screen and (max-width: 600px) {
+    align-items: flex-start;
+  }  
 `
 
 SkillGroup.Progress = styled.div`
@@ -23,6 +37,11 @@ SkillGroup.Progress = styled.div`
   height: 25px;
   position: relative;
   width: 200px;
+
+  @media screen and (max-width: 600px) {
+    height: 15px;
+    width: 35vw;
+  }
   
   &:before {
     background-color: ${props => props.theme.colors.primary};
@@ -31,6 +50,11 @@ SkillGroup.Progress = styled.div`
     position: absolute;
     right: 0;
     width: ${props => props.value}%;
+
+    @media screen and (max-width: 600px) {
+      left: 0;
+      right: unset;
+    }
   }
 `
 
