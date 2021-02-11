@@ -2,8 +2,6 @@ import styled from "styled-components";
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const clamp = (a,b,c) => Math.max(b,Math.min(c,a));
-
 const ProjectSlider = styled.div`
   -webkit-overflow-scrolling: touch;
   display: flex;
@@ -14,7 +12,7 @@ const ProjectSlider = styled.div`
   width: 100%;
   
   @media screen and (max-width: 600px) {
-    max-height: 65vh;
+    margin-top: 20px;
   } 
 
   &::-webkit-scrollbar {
@@ -44,6 +42,11 @@ ProjectSlider.Nav.ButtonGroup = styled.div`
   justify-content: space-between;
   position: relative;
   z-index: 9999;
+
+  @media screen and (max-width: 600px) {
+    position: absolute;
+    transform: scale(.8);
+  }
 `
 
 ProjectSlider.Nav.Button = styled.div`
@@ -51,6 +54,11 @@ ProjectSlider.Nav.Button = styled.div`
   height: 40px;
   width: 20px;
   margin: 10px 0;
+  
+  @media screen and (max-width: 600px) {
+    pointer-events: none;
+    height: 4px;
+}
 
   &:hover {
     border-color: ${props => props.theme.colors.textContrastShaded};
@@ -69,6 +77,11 @@ ProjectSlider.Nav.ButtonSlide = styled.div`
   width: 20px;
   margin: 10px 0;
   transition: left 300ms ease;
+  
+  @media screen and (max-width: 600px) {
+    pointer-events: none;
+    height: 4px;
+}
 `
 
 ProjectSlider.Slide = styled.label`
@@ -102,8 +115,8 @@ ProjectSlider.Content = styled.div`
   z-index: 9;
 
   @media screen and (max-width: 1000px) {
+    height: 100%;
     padding-left: 2rem;
-    height: 40rem;
     top: -10%;
   }  
 `
