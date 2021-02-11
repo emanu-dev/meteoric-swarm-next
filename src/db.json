@@ -2,13 +2,13 @@
   "projects" : [
     {
       "name" : "Trip Agency Website Template",
-      "image" : "/img/projects/placeholder.jpg",
-      "link" : "#",
+      "image" : "/img/projects/outdoor.jpg",
+      "link" : "https://jekyll-travel-agency.netlify.app/",
       "desc": "A website for a fictional camping/hiking travel agency. Statically generated using Jekyll."
     },
     {
       "name" : "Fake Nintendo Direct Leak Generator",
-      "image" : "/img/projects/placeholder.jpg",
+      "image" : "/img/projects/fdlg.jpg",
       "link" : "#",
       "desc": "A parody website, where you can generate your own \"fake leaks\" for Nintendo game announcements. Built with React + Next.JS"
     },

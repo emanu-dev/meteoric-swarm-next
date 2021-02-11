@@ -54,13 +54,6 @@ const Home = () => {
       <Section.Main>
         <Title>
           <Title.Path/>
-          {/*<Title.Text className='--size-md'>blurring the<br/>line between</Title.Text>*/}
-          {/*<Title.Tags>*/}
-          {/*  <Title.Tags.Tag>web </Title.Tags.Tag>*/}
-          {/*  <Title.Tags.Tag>graphic</Title.Tags.Tag>*/}
-          {/*  <Title.Tags.Tag> game</Title.Tags.Tag>*/}
-          {/*</Title.Tags>*/}
-          {/*<Title.Text className='--size-lg --glitched'>design</Title.Text>*/}
           <Line.SeeMore ref={seeMoreElement} className='--active'>
             See<br/>More<br/> ᐁ
           </Line.SeeMore>

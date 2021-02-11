@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+
+const clamp = (a,b,c) => Math.max(b,Math.min(c,a));
 
 const ProjectSlider = styled.div`
   -webkit-overflow-scrolling: touch;
@@ -10,8 +12,13 @@ const ProjectSlider = styled.div`
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   width: 100%;
+  
+  @media screen and (max-width: 600px) {
+    max-height: 65vh;
+  } 
 
   &::-webkit-scrollbar {
+    display: none;
     height: 10px;
   }
   &::-webkit-scrollbar-thumb {
@@ -32,16 +39,36 @@ ProjectSlider.Nav = styled.div`
   width: 80%;
 `
 
-ProjectSlider.Nav.Button = styled.label`
-  background-color: ${props => props.theme.colors.primary};
-  display: inline-block;
-  height: 10px;
+ProjectSlider.Nav.ButtonGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 9999;
+`
+
+ProjectSlider.Nav.Button = styled.div`
+  border: 1px solid ${props => props.theme.colors.primary};
+  height: 40px;
   width: 20px;
   margin: 10px 0;
+
+  &:hover {
+    border-color: ${props => props.theme.colors.textContrastShaded};
+  }
   
   &:not(:last-child)  {
-    margin-right: 10px;
-  }
+    margin-right: 20px;
+  }  
+`
+
+ProjectSlider.Nav.ButtonSlide = styled.div`
+  background-color: ${props => props.theme.colors.textContrast};
+  position: absolute;
+  left: 0;
+  height: 40px;
+  width: 20px;
+  margin: 10px 0;
+  transition: left 300ms ease;
 `
 
 ProjectSlider.Slide = styled.label`
@@ -76,7 +103,8 @@ ProjectSlider.Content = styled.div`
 
   @media screen and (max-width: 1000px) {
     padding-left: 2rem;
-    top: -5%;
+    height: 40rem;
+    top: -10%;
   }  
 `
 
@@ -141,8 +169,20 @@ ProjectSlider.Link = styled.a`
   }
 `
 ProjectSlider.Wrapper = props => {
+  const sliderNav = useRef(null);
+  const sliderScroll = useRef(null);
+  const sliderButtonSlide = useRef(null);
+  const [slideWidth, setSlideWidth] = useState(0);
+  const [sliderScrollPosition, setSliderScrollPosition] = useState(0);
+  const [sliderButtonScrollPosition, setSliderButtonScrollPosition] = useState(0);
+
+  useEffect(() => {
+    setSliderScrollPosition(sliderScroll.current.scrollLeft);
+    setSlideWidth(sliderNav.current.offsetWidth);
+  })
+
   return (
-    <ProjectSlider.Nav id='project-slider'>
+    <ProjectSlider.Nav ref={sliderNav} id='project-slider'>
       <div style={{display:'none'}}>
       {props.db.projects.map((project, index) => (
         <input
@@ -153,7 +193,12 @@ ProjectSlider.Wrapper = props => {
           defaultChecked={index === 0}/>
       ))}
       </div>
-      <ProjectSlider id='project-slider-scroll'>
+      <ProjectSlider ref={sliderScroll} id='project-slider-scroll' onScroll={() => {
+        setSliderScrollPosition(sliderScroll.current.scrollLeft);
+        setSliderButtonScrollPosition(sliderScrollPosition/props.db.projects.length);
+        console.log('scroooooooling');
+        console.log(props.db.projects.length/sliderScrollPosition);
+      }}>
       {props.db.projects.map((project, index) => (
         <ProjectSlider.Slide
           key={index}
@@ -163,27 +208,27 @@ ProjectSlider.Wrapper = props => {
           <ProjectSlider.Content>
             <ProjectSlider.Title>{project.name}</ProjectSlider.Title>
             <ProjectSlider.Desc>{project.desc}</ProjectSlider.Desc>
-            <ProjectSlider.Link href={project.link}>Check it out</ProjectSlider.Link>
+            <ProjectSlider.Link href={project.link} rel='noopener norefferer' target='_blank'>Check it out</ProjectSlider.Link>
           </ProjectSlider.Content>
           <ProjectSlider.Image src={project.image} />
         </ProjectSlider.Slide>
       ))}
       </ProjectSlider>
-      <div>
+      <ProjectSlider.Nav.ButtonGroup>
+        <ProjectSlider.Nav.ButtonSlide
+          ref={sliderButtonSlide}
+          style={{left: `${sliderButtonScrollPosition}px`, width: `${slideWidth/props.db.projects.length}px`}} />
         {props.db.projects.map((project, index) => (
           <ProjectSlider.Nav.Button
             key={index}
-            htmlFor={`slide-${index}`}
             className={`bullets__item bullets__item--${index}`}
+            style={{width: `${slideWidth/props.db.projects.length}px`}}
             onClick={()=> {
-              document.getElementById('slide-4').scrollLeft = 0;
-              const slideWidth = document.getElementById('project-slider').offsetWidth;
-              document.getElementById('project-slider-scroll').scrollLeft = slideWidth * index;
-              console.log(slideWidth * index);
+              sliderScroll.current.scrollLeft = slideWidth * index;
             }}
           />
         ))}
-      </div>
+      </ProjectSlider.Nav.ButtonGroup>
     </ProjectSlider.Nav>
   );
 }
