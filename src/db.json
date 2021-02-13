@@ -9,7 +9,7 @@
     {
       "name" : "Fake Nintendo Direct Leak Generator",
       "image" : "/img/projects/fdlg.jpg",
-      "link" : "#",
+      "link" : "https://fake-direct-gen.vercel.app/",
       "desc": "A parody website, where you can generate your own \"fake leaks\" for Nintendo game announcements. Built with React + Next.JS"
     },
     {
