@@ -12,7 +12,7 @@ import Line from '../src/components/line'
 import Section from '../src/components/section'
 import sectionsHandler from '../src/utils/sectionsHandler'
 import Title from '../src/components/title'
-import ProjectSlider from "../src/components/project";
+import Slider from "../src/components/slider";
 import Text from "../src/components/text";
 import Cursor from "../src/components/cursor";
 import Timeline from "../src/components/timeline";
@@ -109,7 +109,7 @@ const Home = () => {
       <Section>
         <Section.Header className='--left'>Projects</Section.Header>
         <Section.Content className='--full'>
-          <ProjectSlider.Wrapper db={db}/>
+          <Slider.Wrapper db={db}/>
         </Section.Content>
       </Section>
       <Section>

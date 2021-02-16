@@ -15,6 +15,15 @@ const Wrapper = styled.div`
     display: none;
   }
 `
+const CursorPointer = styled.div`
+  border: 2px solid ${props => props.theme.colors.textContrast};
+  border-radius: 50%;
+  background-color: rgba(0,0,0,.5);
+  height: 40px;
+  width: 40px;
+  transform: rotateZ(45deg);
+`
+
 
 const Cursor = () => {
   const [mousePosition, setMousePosition] = useState({x: -20, y: -20});
@@ -39,7 +48,7 @@ const Cursor = () => {
 
   return (
     <Wrapper style={{opacity: Math.sign(mousePosition.x+mousePosition.y), transform: `translate(${mousePosition.x - 32}px, ${mousePosition.y - 32}px)`}}>
-      <CursorSvg />
+      <CursorPointer />
     </Wrapper>
   )
 }
