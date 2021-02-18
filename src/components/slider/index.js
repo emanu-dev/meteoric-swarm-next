@@ -46,7 +46,6 @@ Slider.Nav.ButtonGroup = styled.div`
   display: flex;
   justify-content: space-between;
   position: relative;
-  z-index: 9999;
 
   @media screen and (max-width: 600px) {
     top: 15px;
@@ -57,11 +56,28 @@ Slider.Nav.ButtonGroup = styled.div`
 
 Slider.Nav.Button = styled.div`
   border: 1px solid ${props => props.theme.colors.primary};
+  background-color: transparent;
+  position: relative;
   height: 40px;
   margin: 10px 0;
   width: 20px;
+  z-index: 9;
   
+  &:before {
+    content: ' ';
+    background-color: ${props => props.theme.colors.textContrast};
+    position:absolute;
+    left: unset;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    z-index: -1;
+    transition: width 300ms ease;
+  }
+
   > p {
+    pointer-events: none;
     color: ${props => props.theme.colors.textContrastShaded};
     font-family: 'DejaVuSans', sans-serif;
     font-size: 1.5rem;
@@ -83,6 +99,19 @@ Slider.Nav.Button = styled.div`
   
   &:not(:last-child)  {
     margin-right: 20px;
+  }
+
+  &.--active {
+
+    &:before {
+      left: 0;
+      right: unset;
+      width: 100%;
+    }
+    
+    > p {
+      color: ${props => props.theme.colors.primary};
+    }
   }  
 `
 
@@ -131,9 +160,10 @@ Slider.Slide = styled.div`
 
 Slider.Wrapper = props => {
   
-    const sliderNav = useRef(null);
+  const sliderNav = useRef(null);
   const sliderScroll = useRef(null);
   const sliderButtonSlide = useRef(null);
+  const sliderButtonGroup = useRef(null);
 
   const [slideWidth, setSlideWidth] = useState(0);
   const [sliderScrollPosition, setSliderScrollPosition] = useState(0);
@@ -148,8 +178,18 @@ Slider.Wrapper = props => {
     <Slider.Nav ref={sliderNav}>
       <Slider ref={sliderScroll} onScroll={() => {
         setSliderScrollPosition(sliderScroll.current.scrollLeft);
-        setSliderButtonScrollPosition(sliderScrollPosition/props.db.projects.length);
+        //setSliderButtonScrollPosition(Math.max(sliderScrollPosition/props.db.projects.length - (20 * (props.db.projects.length-1)), 0));
+//        setSliderButtonScrollPosition(
+          //Math.floor(
+          //Math.max(
+//            sliderScroll.current.scrollLeft/(slideWidth * props.db.projects.length)*100 * props.db.projects.length - (props.db.projects.length - 1), 
+            //0
+            //)
+          //)
+        //);
+        //console.log(sliderButtonScrollPosition, '%');
       }}>
+        
       {props.db.projects.map((project, index) => (
         <Slider.Slide
           key={index}
@@ -163,16 +203,19 @@ Slider.Wrapper = props => {
         </Slider.Slide>
       ))}
       </Slider>
-      <Slider.Nav.ButtonGroup>
-        <Slider.Nav.ButtonSlide
-          ref={sliderButtonSlide}
-          style={{transform: `translateX(${sliderButtonScrollPosition}px)`, width: `${slideWidth/props.db.projects.length}px`}} />
+      <Slider.Nav.ButtonGroup ref={sliderButtonGroup}>
         {props.db.projects.map((project, index) => (
           <Slider.Nav.Button
             key={index}
             style={{width: `${slideWidth/props.db.projects.length}px`}}
-            onClick={()=> {
+            onClick={(e)=> {
               sliderScroll.current.scrollLeft = slideWidth * index;
+                
+                e.target.parentElement.childNodes.forEach(element => {
+                  element.classList.remove('--active');
+                });
+              
+              e.target.classList.add('--active');
             }}
           ><p>{index+1}</p>
           </Slider.Nav.Button>

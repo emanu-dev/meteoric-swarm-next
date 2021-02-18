@@ -43,7 +43,7 @@ const Line = styled.div`
 `
 Line.SeeMore = styled.p`
   color: #ffffff;
-  font-family: "DejaVu Sans", sans-serif;
+  font-family: 'DejaVuSans', sans-serif;
   font-size: 2.5rem;
   font-weight: 300;
   left: 52%;

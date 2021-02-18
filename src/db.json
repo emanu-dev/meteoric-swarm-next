@@ -13,23 +13,11 @@
       "desc": "A parody website, where you can generate your own \"fake leaks\" for Nintendo game announcements. Built with React + Next.JS"
     },
     {
-      "name" : "Project 3",
-      "image" : "/img/projects/placeholder.jpg",
-      "link" : "#",
-      "desc": "lorem ipsum dolor sit amet"
-    },
-    {
-      "name" : "Project 4",
-      "image" : "/img/projects/placeholder.jpg",
-      "link" : "#",
-      "desc": "lorem ipsum dolor sit amet"
-    },
-    {
-      "name" : "Project 5",
-      "image" : "/img/projects/placeholder.jpg",
-      "link" : "#",
-      "desc": "lorem ipsum dolor sit amet"
-    }
+      "name" : "Fake Nintendo Direct Leak Generator",
+      "image" : "/img/projects/fdlg.jpg",
+      "link" : "https://fake-direct.vercel.app/",
+      "desc": "A parody website, where you can generate your own \"fake leaks\" for Nintendo game announcements. Built with React + Next.JS"
+    } 
   ],
   "resume" : {
     "timeline" : [

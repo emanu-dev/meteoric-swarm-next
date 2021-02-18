@@ -23,7 +23,7 @@ Project.Title = styled.h4`
 `
 
 Project.Desc = styled.p`
-  font-family: "DejaVu Sans", sans-serif;
+  font-family: 'DejaVuSans', sans-serif;
   font-size: clamp(14px, 2rem, 20px);
   font-weight: 300;
   margin: 0 0 1rem 0;
@@ -59,7 +59,7 @@ Project.Link = styled.a`
   box-shadow: 0 0 0 #ffffff;
   color: ${props => props.theme.colors.textContrast};
   cursor: none;
-  font-family: "DejaVu Sans", sans-serif;
+  font-family: 'DejaVuSans', sans-serif;
   font-size: 12px;
   font-weight: 300;
   padding: 10px 20px;
