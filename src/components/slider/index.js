@@ -162,32 +162,30 @@ Slider.Wrapper = props => {
   
   const sliderNav = useRef(null);
   const sliderScroll = useRef(null);
-  const sliderButtonSlide = useRef(null);
   const sliderButtonGroup = useRef(null);
 
   const [slideWidth, setSlideWidth] = useState(0);
   const [sliderScrollPosition, setSliderScrollPosition] = useState(0);
-  const [sliderButtonScrollPosition, setSliderButtonScrollPosition] = useState(0);
 
-  useEffect(() => {
+  const update = () => {
     setSliderScrollPosition(sliderScroll.current.scrollLeft);
     setSlideWidth(sliderNav.current.offsetWidth);
+  }
+
+  useEffect(() => {
+    update();
+
+    window.addEventListener('resize', update);
+
+    return () => {
+      window.removeEventListener('resize', update);
+    }
   })
 
   return (
     <Slider.Nav ref={sliderNav}>
       <Slider ref={sliderScroll} onScroll={() => {
         setSliderScrollPosition(sliderScroll.current.scrollLeft);
-        //setSliderButtonScrollPosition(Math.max(sliderScrollPosition/props.db.projects.length - (20 * (props.db.projects.length-1)), 0));
-//        setSliderButtonScrollPosition(
-          //Math.floor(
-          //Math.max(
-//            sliderScroll.current.scrollLeft/(slideWidth * props.db.projects.length)*100 * props.db.projects.length - (props.db.projects.length - 1), 
-            //0
-            //)
-          //)
-        //);
-        //console.log(sliderButtonScrollPosition, '%');
       }}>
         
       {props.db.projects.map((project, index) => (
@@ -197,7 +195,15 @@ Slider.Wrapper = props => {
           <Project>
             <Project.Title>{project.name}</Project.Title>
             <Project.Desc>{project.desc}</Project.Desc>
-            <Project.Link href={project.link} rel='noopener norefferer' target='_blank'>Check it out</Project.Link>
+            <Project.Link 
+              href={project.link}
+              rel='noopener norefferer'
+              target='_blank'
+              onMouseEnter={() => props.cursor.current.classList.add('--active')} 
+              onMouseLeave={() => props.cursor.current.classList.remove('--active')}              
+            >
+              Check it out
+            </Project.Link>
           </Project>
           <Project.Image src={project.image} />
         </Slider.Slide>
@@ -206,6 +212,9 @@ Slider.Wrapper = props => {
       <Slider.Nav.ButtonGroup ref={sliderButtonGroup}>
         {props.db.projects.map((project, index) => (
           <Slider.Nav.Button
+            onMouseEnter={() => props.cursor.current.classList.add('--active')} 
+            onMouseLeave={() => props.cursor.current.classList.remove('--active')}
+            className={index === 0 && '--active'}
             key={index}
             style={{width: `${slideWidth/props.db.projects.length}px`}}
             onClick={(e)=> {

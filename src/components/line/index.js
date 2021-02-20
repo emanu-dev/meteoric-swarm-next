@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Line = styled.div`
   position: absolute;
@@ -8,8 +8,8 @@ const Line = styled.div`
   height: 0px;
   left: 50vw;
   opacity: .25;
-  transition: transform 300ms ease;
-  top: 60rem;
+  transition: transform 300ms ease-out;
+  top: 480px;
   width: 2px;
   z-index: 999;
 
@@ -28,7 +28,6 @@ const Line = styled.div`
     
     @media screen and (max-width: 600px) {
       transform: translate(-50vw) translate(20px);
-      width: 1px;
     }    
   }
 
@@ -37,20 +36,19 @@ const Line = styled.div`
     
     @media screen and (max-width: 600px) {
       transform: translate(50vw) translate(-20px);
-      width: 1px;
     }    
   }
 `
 Line.SeeMore = styled.p`
   color: #ffffff;
   font-family: 'DejaVuSans', sans-serif;
-  font-size: 2.5rem;
+  font-size: clamp(18px, 2.5rem, 250px);
   font-weight: 300;
   left: 52%;
   opacity: 0;
   text-align: left;
   text-transform: uppercase;
-  top: 58rem;
+  top: 480px;
   transition: opacity 300ms ease;
   position: fixed;
 
@@ -71,9 +69,13 @@ Line.Social = styled.div`
   transition: opacity 300ms ease;
   position: fixed;
   left: 52%;
-  top: 65rem;
+  top: 56rem;
   visibility: hidden;
   z-index: -99;
+
+  > a {
+    cursor: none;
+  }
 
   &.--active {
     opacity: 1;
@@ -92,8 +94,13 @@ Line.Social = styled.div`
 `
 
 Line.Social.Icon = props => {
+
   return(
-    <a target='_blank' rel='noopener noreferrer' href={props.link}>
+    <a  onMouseEnter={() => props.cursor.current.classList.add('--active')} 
+        onMouseLeave={() => props.cursor.current.classList.remove('--active')} 
+        target='_blank'
+        rel='noopener noreferrer'
+        href={props.link}>
       {props.children}
     </a>
   )

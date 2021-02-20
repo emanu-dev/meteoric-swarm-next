@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from "react";
-import CursorSvg from '../../cursors/cursor-regular.svg';
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -22,10 +21,18 @@ const CursorPointer = styled.div`
   height: 40px;
   width: 40px;
   transform: rotateZ(45deg);
+  transition: border-radius 150ms ease-in;
+  position: relative;
+  top: 10px;
+  left: 10px;
+
+  &.--active {
+    border-radius: 0;
+  }
 `
 
 
-const Cursor = () => {
+const Cursor = React.forwardRef((props, ref) => {
   const [mousePosition, setMousePosition] = useState({x: -20, y: -20});
 
   const updateMousePosition = e => {
@@ -48,9 +55,9 @@ const Cursor = () => {
 
   return (
     <Wrapper style={{opacity: Math.sign(mousePosition.x+mousePosition.y), transform: `translate(${mousePosition.x - 32}px, ${mousePosition.y - 32}px)`}}>
-      <CursorPointer />
+      <CursorPointer ref={ref} />
     </Wrapper>
   )
-}
+});
 
 export default Cursor;
