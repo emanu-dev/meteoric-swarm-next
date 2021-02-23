@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
 const Timeline = styled.div`
+  align-items: flex-end;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid ${props => props.theme.colors.secondary};
+  border-right: 1px solid ${props => props.theme.colors.textContrastShaded};
   justify-content: center;
   padding: 0 clamp(16px, 2rem, 20px);
 `
 
 Timeline.Item = styled.div`
   margin: 1rem 0;
+  max-width: 35rem;
   
   > p {
     text-align: right;
@@ -17,12 +19,12 @@ Timeline.Item = styled.div`
   }
   
   > h6 {
-    left: 0px;
+    right: 0px;
     position: relative;
     text-align: right;
     
     &::before {
-      background-color: ${props => props.theme.colors.secondary};
+      background: ${props => props.theme.colors.primaryGradient};
       border-radius: 50%;
       content: ' ';
       height: 20px;
