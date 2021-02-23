@@ -3,20 +3,36 @@ import '../public/fonts/fonts.css';
 
 const theme = {
   colors: {
-    primary: '#7303c0',
-    secondary: '#9a7bb3',
+    primary: '#CA32FF',
+    secondary: '#FF3E3E',
+		bgLight: '#1F0027',
     textContrast: '#FFFFFF',
     textContrastShaded: 'rgba(255, 255, 255, .5)',
-    primaryGradient: 'linear-gradient(45deg,#40186b,#7303c0,#ec38bc,#fdeff9)',
+    primaryGradient: 'linear-gradient(100deg, #CA32FF 0%, #FF3E3E 100%)',
   },
 }
 
 const GlobalStyle = createGlobalStyle`
 
+
   *{
+		-webkit-user-drag: none;
     box-sizing: border-box;  
+		scrollbar-width: none;
   }
-  
+
+	::-webkit-scrollbar {
+    display: none;
+	}
+
+  ::selection {
+		background: #9a7bb3;
+  }
+    
+  ::-moz-selection {
+    background: #9a7bb3;
+  }
+
   html {
 
     cursor: none !important;
