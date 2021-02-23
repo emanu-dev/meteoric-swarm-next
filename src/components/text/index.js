@@ -7,16 +7,18 @@ const Text = styled.div`
   flex-direction: column;
 `
 Text.Header = styled.h3`
-  color: ${props => props.theme.colors.primary};
+  background: ${props => props.theme.colors.primaryGradient};
   font-family: 'Atkinson Hyperlegible', sans-serif;
   font-size: clamp(40px, 7rem, 70px);
   line-height: 90%;
   margin: 0;
   text-transform: uppercase;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;  
 `
 
 Text.SmallHeader = styled.h6`
-  color: ${props => props.theme.colors.secondary};
+  color: ${props => props.theme.colors.primary};
   font-family: 'Atkinson Hyperlegible', sans-serif;
   font-size: clamp(18px, 2.4rem, 24px);
   font-weight: 700;
