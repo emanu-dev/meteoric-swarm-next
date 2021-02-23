@@ -81,7 +81,10 @@ Slider.Nav.Button = styled.div`
     color: ${props => props.theme.colors.textContrastShaded};
     font-family: 'DejaVuSans', sans-serif;
     font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 130%;
     margin: 1rem 0 0 1rem;
+    transition: font-size 300ms ease;
   }
 
   @media screen and (max-width: 600px) {
@@ -110,7 +113,11 @@ Slider.Nav.Button = styled.div`
     }
     
     > p {
+      font-family: 'Atkinson Hyperlegible', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
       color: ${props => props.theme.colors.primary};
+      line-height: 110%;
     }
   }  
 `

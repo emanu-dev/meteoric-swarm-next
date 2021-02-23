@@ -1,11 +1,14 @@
 import styled from "styled-components";
 
 const SkillGroup = styled.div`
-  align-items: flex-start;
+  align-items: end;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(5, 1fr);
+  grid-gap: 1rem;
+  height: fit-content;
   margin: 20px 0 0 0;
+  width: fit-content;
 
   > h6 {
       grid-column-start: span 2;
@@ -17,14 +20,13 @@ const SkillGroup = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(4, auto);
     width: 100%;
-    
-
   }
 `
 
 SkillGroup.Item = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: flex-start;
   
   > p {
@@ -50,7 +52,7 @@ SkillGroup.Progress = styled.div`
   }
   
   &:before {
-    background-color: ${props => props.theme.colors.primary};
+    background: ${props => props.theme.colors.primaryGradient};
     content: ' ';
     height: 100%;
     position: absolute;
