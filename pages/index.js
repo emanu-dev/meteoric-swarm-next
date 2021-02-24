@@ -95,11 +95,11 @@ const Home = () => {
         </Section.Content>
       </Section>
       <Section count={2}>
-        <Section.Header className='--right'>Resume</Section.Header>
+        <Section.Header style={{textAlign: 'right'}}>Resume</Section.Header>
           <Section.Content>
           <Timeline>
               {db.resume.timeline.map((item, index) => (
-                <Timeline.Item key={index}>
+                <Timeline.Item key={index} delay={`${(db.resume.timeline.length - index + 1)/10 + .25}s`}>
                   <Text.Small>{item.period}</Text.Small>
                   <Text.SmallHeader>{item.title}</Text.SmallHeader>
                   <Text.Body>{item.place}</Text.Body>
@@ -110,22 +110,22 @@ const Home = () => {
           <SkillGroup>
             <Text.SmallHeader>skills</Text.SmallHeader>
             {db.resume.skills.map((skill, index) => (
-              <SkillGroup.Item key={index} value={skill.value}>
+              <SkillGroup.Item key={index} value={skill.value} delay={`${index/10 + .25}s`}>
                 <Text.Small>{skill.title}</Text.Small>
-                <SkillGroup.Progress />
+                <SkillGroup.Progress delay={`${(index+1)/10 + .25}s`} />
               </SkillGroup.Item>
             ))}
           </SkillGroup>
         </Section.Content>
       </Section>
       <Section count={3}>
-        <Section.Header className='--left'>Projects</Section.Header>
-        <Section.Content className='--full'>
+        <Section.Header>Projects</Section.Header>
+        <Section.Content>
           <Slider.Wrapper cursor={cursor} db={db}/>
         </Section.Content>
       </Section>
       <Section count={4}>
-        <Section.Header className='--right'>More</Section.Header>
+        <Section.Header style={{textAlign: 'right'}}>More</Section.Header>
         <Section.Content>
           <Center>
           <Text>

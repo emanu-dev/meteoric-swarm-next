@@ -15,7 +15,6 @@ const SkillGroup = props => {
 }
 
 
-
 SkillGroup.Wrapper = styled.div`
   align-items: end;
   display: grid;
@@ -28,7 +27,14 @@ SkillGroup.Wrapper = styled.div`
 
   > h6 {
       grid-column-start: span 2;
-      text-align: left;
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 300ms ease, transform 300ms ease-in-out;
+
+      &.--active {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
   @media screen and (max-width: 600px) {
@@ -36,29 +42,39 @@ SkillGroup.Wrapper = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(4, auto);
     width: 100%;
+    height: fit-content;
+
+    > h6 {
+      text-align: right;
+    }
   }
 ` 
 
 SkillGroup.Item = styled.div`
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-start;
+  opacity: 0;
+  transition: opacity 500ms ease ${props => props.delay};
   
   > p {
-    margin: 15px 0 5px 0;
+    margin: 0;
     text-align: left;
     text-transform: uppercase;
   }
   
   &.--active {
+      opacity: 1;
+
       > div::before {
         width: ${props => props.value}%;
       }
     }
 
   @media screen and (max-width: 600px) {
-    align-items: flex-start;
+    align-items: flex-end;
+    text-align: right;
   }  
 `
 
@@ -70,7 +86,7 @@ SkillGroup.Progress = styled.div`
 
   @media screen and (max-width: 600px) {
     height: 15px;
-    width: 35vw;
+    width: 30vw;
   }
   
   &:before {
@@ -79,12 +95,12 @@ SkillGroup.Progress = styled.div`
     height: 100%;
     left: 0;
     position: absolute;
-    transition: width 300ms ease-in-out;
+    transition: width 300ms ease-in-out ${props => props.delay};
     width: 0;
 
     @media screen and (max-width: 600px) {
-      left: 0;
-      right: unset;
+      left: unset;
+      right: 0;
     }
   }
 `

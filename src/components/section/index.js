@@ -35,6 +35,7 @@ const Section = props => {
         return React.cloneElement(child, {
           active: active,
           className: active ? '--active' : '',
+          child: child,
         })
       })}
     </Section.Wrapper>
