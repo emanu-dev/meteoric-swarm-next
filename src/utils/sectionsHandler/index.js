@@ -47,10 +47,6 @@ const updateSectionsVisibility = (lineElement, seeMoreElement, socialElement) =>
     lineElement.current.classList.add('--center');
     seeMoreElement.current.classList.add('--active');
 
-    [].map.call(sectionList, (element) => {
-      element.classList.remove('--active');
-    });
-
   } else {
     seeMoreElement.current.classList.remove('--active');
     if (getSectionNumbering() % 2 === 1) {
@@ -60,14 +56,6 @@ const updateSectionsVisibility = (lineElement, seeMoreElement, socialElement) =>
       lineElement.current.classList.remove('--center', '--left');
       lineElement.current.classList.add('--right');
     }
-
-    sectionList.forEach( (element, index) => {
-      if (index === getSectionNumbering()) {
-        element.classList.add('--active');
-      }else {
-        element.classList.remove('--active');
-      }
-    })
   }
 }
 
@@ -78,8 +66,13 @@ const handleScroll = (debugElement, lineElement, seeMoreElement, socialElement) 
   updateSectionsVisibility(lineElement, seeMoreElement, socialElement);
 }
 
+const activeSectionNumber = () => {
+  return getSectionNumbering();
+}
+
 export default {
   SECTION_HEIGHT : SECTION_HEIGHT,
   updateWindowSize : updateWindowSize,
   handleScroll : handleScroll,
+  activeSectionNumber : activeSectionNumber,
 }

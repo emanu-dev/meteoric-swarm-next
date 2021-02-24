@@ -1,7 +1,47 @@
 import styled from 'styled-components';
+import React from 'react';
 import SectionsHandler from '../../utils/sectionsHandler';
 
-const Section = styled.section`
+let instancesCount = 0;
+
+const Section = props => {
+
+  const [thisSectionNumber, setThisSectionNumber] = React.useState(0);
+  const [active, setActive] = React.useState(false);
+
+  React.useEffect(() => {
+    
+    instancesCount += 1;
+    setThisSectionNumber(instancesCount);
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        setActive(SectionsHandler.activeSectionNumber() === props.count);
+      }
+    );
+
+    return () => {
+      window.removeEventListener(
+        'scroll',
+        setActive(SectionsHandler.activeSectionNumber() === props.count)
+      );
+    }
+  }, []);
+
+  return (
+    <Section.Wrapper className={active ? '--active' : ''}>
+      {React.Children.map(props.children, child => {
+        return React.cloneElement(child, {
+          active: active,
+          className: active ? '--active' : '',
+        })
+      })}
+    </Section.Wrapper>
+  )
+}
+
+Section.Wrapper = styled.section`
   background: linear-gradient(200deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
   height: ${SectionsHandler.SECTION_HEIGHT}px;
   opacity: 0;
@@ -44,7 +84,7 @@ Section.Header = styled.h3`
     text-align: right;
   }  
 `
-Section.Content = styled.div`
+Section.ContentWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 4rem;
@@ -74,5 +114,18 @@ Section.Content = styled.div`
     }    
   }
 `
+
+Section.Content = props => {
+  return (
+    <Section.ContentWrapper>
+      {React.Children.map(props.children, child => {
+        return React.cloneElement(child, {
+          active: props.active,
+          className: props.active ? '--active' : '',
+        })
+      })}
+    </Section.ContentWrapper>
+  )
+}
 
 export default Section;

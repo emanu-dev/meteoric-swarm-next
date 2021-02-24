@@ -1,6 +1,22 @@
 import styled from "styled-components";
+import React from 'react';
 
-const SkillGroup = styled.div`
+const SkillGroup = props => {
+  return (
+    <SkillGroup.Wrapper className={props.active ? '--active' : ''}>
+      {React.Children.map(props.children, child => {
+        return React.cloneElement(child, {
+          active: props.active,
+          className: props.active ? '--active' : '',
+        })
+      })}      
+    </SkillGroup.Wrapper>
+  )
+}
+
+
+
+SkillGroup.Wrapper = styled.div`
   align-items: end;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -21,7 +37,7 @@ const SkillGroup = styled.div`
     grid-template-rows: repeat(4, auto);
     width: 100%;
   }
-`
+` 
 
 SkillGroup.Item = styled.div`
   display: flex;
@@ -35,6 +51,12 @@ SkillGroup.Item = styled.div`
     text-transform: uppercase;
   }
   
+  &.--active {
+      > div::before {
+        width: ${props => props.value}%;
+      }
+    }
+
   @media screen and (max-width: 600px) {
     align-items: flex-start;
   }  
@@ -55,9 +77,10 @@ SkillGroup.Progress = styled.div`
     background: ${props => props.theme.colors.primaryGradient};
     content: ' ';
     height: 100%;
-    position: absolute;
     left: 0;
-    width: ${props => props.value}%;
+    position: absolute;
+    transition: width 300ms ease-in-out;
+    width: 0;
 
     @media screen and (max-width: 600px) {
       left: 0;

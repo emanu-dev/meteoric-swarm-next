@@ -75,7 +75,7 @@ const Home = () => {
           </Line.Social>
         </Title>
       </Section.Main>
-      <Section>
+      <Section count={1}>
         <Section.Header className='--left'>About me</Section.Header>
         <Section.Content>
           <Center>
@@ -94,7 +94,7 @@ const Home = () => {
           </Center>
         </Section.Content>
       </Section>
-      <Section>
+      <Section count={2}>
         <Section.Header className='--right'>Resume</Section.Header>
           <Section.Content>
           <Timeline>
@@ -110,21 +110,21 @@ const Home = () => {
           <SkillGroup>
             <Text.SmallHeader>skills</Text.SmallHeader>
             {db.resume.skills.map((skill, index) => (
-              <SkillGroup.Item key={index}>
+              <SkillGroup.Item key={index} value={skill.value}>
                 <Text.Small>{skill.title}</Text.Small>
-                <SkillGroup.Progress value={skill.value} />
+                <SkillGroup.Progress />
               </SkillGroup.Item>
             ))}
           </SkillGroup>
         </Section.Content>
       </Section>
-      <Section>
+      <Section count={3}>
         <Section.Header className='--left'>Projects</Section.Header>
         <Section.Content className='--full'>
           <Slider.Wrapper cursor={cursor} db={db}/>
         </Section.Content>
       </Section>
-      <Section>
+      <Section count={4}>
         <Section.Header className='--right'>More</Section.Header>
         <Section.Content>
           <Center>
