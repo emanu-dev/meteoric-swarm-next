@@ -5,6 +5,25 @@ const Text = styled.div`
   color: ${props => props.theme.colors.textContrast};
   display: flex;
   flex-direction: column;
+
+  > h3, h6 {
+    opacity: 0;
+    transition: opacity 500ms ease, transform 300ms ease-in-out;
+    transform: translateX(-25%);
+  }
+
+  > p {
+    opacity: 0;
+    transition: opacity 500ms ease 200ms, transform 300ms ease-in-out 200ms;    
+    transform: translateX(-25%);
+  }
+
+  &.--active {
+    > h3, h6, p {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 `
 Text.Header = styled.h3`
   background: ${props => props.theme.colors.primaryGradient};

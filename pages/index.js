@@ -30,7 +30,20 @@ const Debug = styled.div`
   z-index: 9999;
 `
 
-const Center = styled.div`
+const Center = props => {
+  return (
+    <Center.Wrapper>
+    {React.Children.map(props.children, child => {
+      return React.cloneElement(child, {
+        active: props.active,
+        className: props.active ? '--active' : '',
+      })
+    })}
+  </Center.Wrapper>
+  )
+}
+
+Center.Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,7 +89,7 @@ const Home = () => {
         </Title>
       </Section.Main>
       <Section count={1}>
-        <Section.Header className='--left'>About me</Section.Header>
+        <Section.Header>About me</Section.Header>
         <Section.Content>
           <Center>
             <Image
