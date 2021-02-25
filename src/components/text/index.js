@@ -5,6 +5,7 @@ const Text = styled.div`
   color: ${props => props.theme.colors.textContrast};
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 
   > h3, h6 {
     opacity: 0;

@@ -30,20 +30,7 @@ const Debug = styled.div`
   z-index: 9999;
 `
 
-const Center = props => {
-  return (
-    <Center.Wrapper>
-    {React.Children.map(props.children, child => {
-      return React.cloneElement(child, {
-        active: props.active,
-        className: props.active ? '--active' : '',
-      })
-    })}
-  </Center.Wrapper>
-  )
-}
-
-Center.Wrapper = styled.div`
+const Center = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,7 +78,7 @@ const Home = () => {
       <Section count={1}>
         <Section.Header>About me</Section.Header>
         <Section.Content>
-          <Center>
+          <Center className='img-wrapper'>
             <Image
                   src='/img/me.png'
                   width={450}
@@ -99,12 +86,10 @@ const Home = () => {
                   alt='Emanuel Prado'
                 />
           </Center>
-          <Center>
-            <Text>
-              <Text.Header>I'm Emanuel<br/>Prado</Text.Header>
-              <Text.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text.Body>
-            </Text>          
-          </Center>
+          <Text>
+            <Text.Header>I'm Emanuel<br/>Prado</Text.Header>
+            <Text.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text.Body>
+          </Text>          
         </Section.Content>
       </Section>
       <Section count={2}>
@@ -133,19 +118,17 @@ const Home = () => {
       </Section>
       <Section count={3}>
         <Section.Header>Projects</Section.Header>
-        <Section.Content>
+        <Section.Content.Full className='--full'>
           <Slider.Wrapper cursor={cursor} db={db}/>
-        </Section.Content>
+        </Section.Content.Full>
       </Section>
       <Section count={4}>
         <Section.Header style={{textAlign: 'right'}}>More</Section.Header>
         <Section.Content>
-          <Center>
           <Text>
               <Text.Header>There is more...</Text.Header>
               <Text.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text.Body>
             </Text>          
-          </Center>
           <Center>
           <Image
               src='/img/projects/placeholder.jpg'

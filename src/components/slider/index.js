@@ -57,9 +57,10 @@ Slider.Nav.ButtonGroup = styled.div`
 Slider.Nav.Button = styled.div`
   border: 1px solid ${props => props.theme.colors.primary};
   background-color: transparent;
-  position: relative;
   height: 40px;
   margin: 10px 0;
+  position: relative;
+  transition: transform 500ms ease;
   width: 20px;
   z-index: 9;
   
@@ -223,7 +224,7 @@ Slider.Wrapper = props => {
             onMouseLeave={() => props.cursor.current.classList.remove('--active')}
             className={index === 0 && '--active'}
             key={index}
-            style={{width: `${slideWidth/props.db.projects.length}px`}}
+            style={{width: `${slideWidth/props.db.projects.length}px`, transitionDelay: `${(index+1)/5 + .25}s`}}
             onClick={(e)=> {
               sliderScroll.current.scrollLeft = slideWidth * index;
                 

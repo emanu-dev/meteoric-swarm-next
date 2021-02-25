@@ -35,7 +35,6 @@ const Section = props => {
         return React.cloneElement(child, {
           active: active,
           className: active ? '--active' : '',
-          child: child,
         })
       })}
     </Section.Wrapper>
@@ -94,31 +93,53 @@ Section.ContentWrapper = styled.div`
   padding: 4rem 2rem;
   position: relative;
   
+  img {
+    transition: transform 500ms ease-out;
+    transform: translateX(-75%);
+  }
+
+  &.--active {
+      img {
+        transform: translateX(0);
+      }
+  }
+
   @media screen and (max-width: 600px) {
     align-items: center;
     display: flex;
     flex-direction: column;
     height: 100%;
   }
+`
 
-  &.--full {
+Section.ContentWrapper.Full = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+
+  div {
+    transition: transform 500ms ease;
+    transform: translateY(-75%);
+  }
+
+  &.--active {
+      div {
+        transform: translateX(0);
+      }
+  }
+
+  @media screen and (max-width: 1000px) {
     align-items: center;
     display: flex;
     flex-direction: column;
-    padding: 0;
-
-    @media screen and (max-width: 1000px) {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }    
-  }
+    height: 100%;
+  }  
 `
 
 Section.Content = props => {
   return (
-    <Section.ContentWrapper>
+    <Section.ContentWrapper className={props.active ? '--active' : ''}>
       {React.Children.map(props.children, child => {
         return React.cloneElement(child, {
           active: props.active,
@@ -126,6 +147,19 @@ Section.Content = props => {
         })
       })}
     </Section.ContentWrapper>
+  )
+}
+
+Section.Content.Full = props => {
+  return (
+    <Section.ContentWrapper.Full className={props.active ? '--active' : ''}>
+      {React.Children.map(props.children, child => {
+        return React.cloneElement(child, {
+          active: props.active,
+          className: props.active ? '--active' : '',
+        })
+      })}
+    </Section.ContentWrapper.Full>
   )
 }
 
