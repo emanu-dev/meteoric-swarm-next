@@ -29,6 +29,11 @@ const Line = styled.div`
     @media screen and (max-width: 600px) {
       transform: translate(-50vw) translate(20px);
     }    
+
+    @media screen and (min-width: 1400px) {
+      transform: translate(-800px);
+    }
+
   }
 
   &.--right {
@@ -36,7 +41,11 @@ const Line = styled.div`
     
     @media screen and (max-width: 600px) {
       transform: translate(50vw) translate(-20px);
-    }    
+    }
+
+    @media screen and (min-width: 1400px) {
+      transform: translate(800px);
+    }        
   }
 `
 Line.SeeMore = styled.p`
