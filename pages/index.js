@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Image from 'next/image';
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import db from '../src/db.json';
 
 import IconLinkedin from '../src/icons/iconLinkedin.svg';
@@ -39,20 +39,22 @@ const Center = styled.div`
 const Home = () => {
 
   const lineElement = useRef(null);
-  const seeMoreElement = useRef(null);
   const mainComponent = useRef(null);
   const debugElement = useRef(null)
   const socialElement = useRef(null);
   const cursor = useRef(null);
+  const [activeSection, setActiveSection] = useState(0);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
-      sectionsHandler.handleScroll(debugElement, lineElement, seeMoreElement, socialElement);
+      sectionsHandler.handleScroll(debugElement, lineElement);
+      setActiveSection(sectionsHandler.activeSectionNumber());
     });
+    console.log(document.querySelectorAll('div'));
     sectionsHandler.updateWindowSize(mainComponent, lineElement);
 
     return () => {
-      window.removeEventListener("scroll", () => {sectionsHandler.handleScroll(debugElement, lineElement, seeMoreElement, socialElement)});
+      window.removeEventListener("scroll", () => {sectionsHandler.handleScroll(debugElement, lineElement)});
     };
   });
 
@@ -61,18 +63,24 @@ const Home = () => {
       <Video />
       <Cursor ref={cursor} />
       <Debug ref={debugElement}>Debug</Debug>
-      <Line ref={lineElement} className='--center' />
+      <Line ref={lineElement} className='--center'>
+          <Line.Content>
+            <Line.Text>
+              See<br/>More<br/> ᐁ
+            </Line.Text>
+            <Line.Social ref={socialElement}>
+            <Line.Text>
+              Find Me
+            </Line.Text>
+              <Line.Social.Icon cursor={cursor} link='https://br.linkedin.com/in/emanuel-prado'><IconLinkedin /></Line.Social.Icon>
+              <Line.Social.Icon cursor={cursor} link='https://codepen.io/emanu-fer'><IconCodepen /></Line.Social.Icon>
+              <Line.Social.Icon cursor={cursor} link='https://github.com/emanu-dev'><IconGithub /></Line.Social.Icon>
+            </Line.Social>
+          </Line.Content>
+      </Line>
       <Section.Main>
         <Title>
           <Title.Path/>
-          <Line.SeeMore ref={seeMoreElement} className='--active'>
-            See<br/>More<br/> ᐁ
-          </Line.SeeMore>
-          <Line.Social ref={socialElement}>
-            <Line.Social.Icon cursor={cursor} link='https://br.linkedin.com/in/emanuel-prado'><IconLinkedin /></Line.Social.Icon>
-            <Line.Social.Icon cursor={cursor} link='https://codepen.io/emanu-fer'><IconCodepen /></Line.Social.Icon>
-            <Line.Social.Icon cursor={cursor} link='https://github.com/emanu-dev'><IconGithub /></Line.Social.Icon>
-          </Line.Social>
         </Title>
       </Section.Main>
       <Section count={1}>
@@ -93,7 +101,7 @@ const Home = () => {
         </Section.Content>
       </Section>
       <Section count={2}>
-        <Section.Header style={{textAlign: 'right'}}>Resume</Section.Header>
+        <Section.Header style={{textAlign: 'right'}}>Resumé</Section.Header>
           <Section.Content>
           <Timeline>
               {db.resume.timeline.map((item, index) => (

@@ -69,13 +69,20 @@ const Cursor = React.forwardRef((props, ref) => {
     setMousePosition({x: -20, y: -20});
   }
 
-  useEffect(() => {
+  const init = () => {
     window.addEventListener("mousemove", updateMousePosition);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll);    
+  }
 
+  const endUpdate = () => {
+    window.removeEventListener("mousemove", updateMousePosition);
+    window.removeEventListener("scroll", handleScroll);    
+  }
+
+  useEffect(() => {
+    init();
     return () => {
-      window.removeEventListener("mousemove", updateMousePosition);
-      window.removeEventListener("scroll", handleScroll);
+      endUpdate();
     };
   }, []);
 

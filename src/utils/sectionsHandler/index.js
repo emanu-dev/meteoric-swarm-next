@@ -26,29 +26,13 @@ const updateWindowSize = (mainComponent, lineElement) => {
   lineElement.current.style.height = `${pageHeight-600}px`;
 }
 
-const updateSectionsVisibility = (lineElement, seeMoreElement, socialElement) => {
-
-  if (getSectionNumbering() > 1) {
-    seeMoreElement.current.innerHTML = 'Find Me';
-    socialElement.current.classList.add('--visible');
-  }else {
-    seeMoreElement.current.innerHTML = 'See<br/>More<br/> ᐁ';
-    socialElement.current.classList.remove('--visible');
-  }
-
-  if (getSectionNumbering() >= (sectionCount -1)){
-    socialElement.current.classList.add('--active');
-  } else{
-    socialElement.current.classList.remove('--active');
-  }
+const updateSectionsVisibility = (lineElement) => {
 
   if (!isWithinSections() || getSectionNumbering() === 0) {
     lineElement.current.classList.remove('--right', '--left');
     lineElement.current.classList.add('--center');
-    seeMoreElement.current.classList.add('--active');
 
   } else {
-    seeMoreElement.current.classList.remove('--active');
     if (getSectionNumbering() % 2 === 1) {
       lineElement.current.classList.remove('--center', '--right');
       lineElement.current.classList.add('--left');
@@ -59,11 +43,11 @@ const updateSectionsVisibility = (lineElement, seeMoreElement, socialElement) =>
   }
 }
 
-const handleScroll = (debugElement, lineElement, seeMoreElement, socialElement) => {
+const handleScroll = (debugElement, lineElement) => {
   pagePercentage = Math.floor((document.documentElement.scrollTop/pageHeight)*100);
   debugElement.current.textContent = `ScrollPos ${document.documentElement.scrollTop} | CurrentSection #${Math.floor(document.documentElement.scrollTop / SECTION_HEIGHT)}`;
 
-  updateSectionsVisibility(lineElement, seeMoreElement, socialElement);
+  updateSectionsVisibility(lineElement);
 }
 
 const activeSectionNumber = () => {
