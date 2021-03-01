@@ -3,6 +3,8 @@ import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Project from './project';
 
+const slideMargin = 100;
+
 const Slider = styled.div`
   -webkit-overflow-scrolling: touch;
   display: flex;
@@ -50,7 +52,7 @@ Slider.Nav.ButtonGroup = styled.div`
   @media screen and (max-width: 600px) {
     top: 15px;
     position: absolute;
-    transform: scale(.8);
+    width: 85vw;
   }
 `
 
@@ -64,6 +66,11 @@ Slider.Nav.Button = styled.div`
   width: 20px;
   z-index: 9;
   
+  @media screen and (max-width: 600px) {
+    border: none;
+    background-color: ${props => props.theme.colors.primary};
+  }
+
   &:before {
     content: ' ';
     background-color: ${props => props.theme.colors.textContrast};
@@ -88,15 +95,6 @@ Slider.Nav.Button = styled.div`
     transition: font-size 300ms ease;
   }
 
-  @media screen and (max-width: 600px) {
-    pointer-events: none;
-    height: 4px;
-
-    > p {
-        display: none;
-    }
-}
-
   &:hover {
     border-color: ${props => props.theme.colors.textContrastShaded};
   }
@@ -120,24 +118,29 @@ Slider.Nav.Button = styled.div`
       color: ${props => props.theme.colors.primary};
       line-height: 110%;
     }
-  }  
-`
-
-Slider.Nav.ButtonSlide = styled.div`
-  background-color: ${props => props.theme.colors.textContrast};
-  left: 0;
-  height: 40px;
-  margin: 10px 0;
-  position: absolute;
-  transform: translateX(0);
-  transition: transform 300ms ease, width 300ms ease;
-  width: 20px;
-  will-change: transform, width;
+  }
   
   @media screen and (max-width: 600px) {
     pointer-events: none;
     height: 4px;
-}
+    opacity: .25;
+    transition: all 300ms ease;
+
+    > p {
+        display: none;
+    }
+
+    &.--active {
+      &:before {
+        display: none;
+      }
+    }
+
+    &.--active-mobile {
+      background-color: ${props => props.theme.colors.textContrastShaded};
+      opacity: 1;
+    }
+  }    
 `
 
 Slider.Slide = styled.div`
@@ -146,16 +149,13 @@ Slider.Slide = styled.div`
   display: flex;
   justify-content: flex-start;
   height: 100%;
+  margin-right: ${slideMargin}px;
   max-width: 140rem;
   padding: 0 5rem;
   position: relative;
   width: 100%;
   flex-shrink: 0;
   transition: transform 300ms ease;
-  
-  &:not(:last-child)  {
-    margin-right: 100px;
-  }
 
   @media screen and (max-width: 1000px) {
     display: flex;
@@ -182,13 +182,12 @@ Slider.Wrapper = props => {
 
   useEffect(() => {
     update();
-
     window.addEventListener('resize', update);
 
     return () => {
       window.removeEventListener('resize', update);
     }
-  })
+  }, []);
 
   return (
     <Slider.Nav ref={sliderNav}>
@@ -222,17 +221,11 @@ Slider.Wrapper = props => {
           <Slider.Nav.Button
             onMouseEnter={() => props.cursor.current.classList.add('--active')} 
             onMouseLeave={() => props.cursor.current.classList.remove('--active')}
-            className={index === 0 && '--active'}
+            className={`${Math.round(sliderScrollPosition/(slideWidth + slideMargin)) === index && '--active --active-mobile'}`}
             key={index}
-            style={{width: `${slideWidth/props.db.projects.length}px`, transitionDelay: `${(index+1)/5 + .25}s`}}
-            onClick={(e)=> {
-              sliderScroll.current.scrollLeft = slideWidth * index;
-                
-                e.target.parentElement.childNodes.forEach(element => {
-                  element.classList.remove('--active');
-                });
-              
-              e.target.classList.add('--active');
+            style={{width: `${slideWidth/props.db.projects.length}px`}}
+            onClick={() => {
+              sliderScroll.current.scrollLeft = (slideWidth + slideMargin) * index;
             }}
           ><p>{index+1}</p>
           </Slider.Nav.Button>

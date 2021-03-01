@@ -13,6 +13,7 @@ const Line = styled.div`
   height: 0px;
   left: 50vw;
   opacity: .25;
+  pointer-events: default;
   position: absolute;
   transition: transform 300ms ease-out;
   top: 480px;
@@ -38,7 +39,7 @@ const Line = styled.div`
   }
 
   &.--left {
-
+    pointer-events: none;
     transform: translate(-50vw) translate(${boundaries.regular}px);
     
     @media screen and (max-width: 600px) {
@@ -52,7 +53,7 @@ const Line = styled.div`
   }
 
   &.--right {
-
+    pointer-events: none;
     transform: translate(50vw) translate(-${boundaries.regular}px);
     
     @media screen and (max-width: 600px) {

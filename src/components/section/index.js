@@ -4,7 +4,7 @@ import SectionsHandler from '../../utils/sectionsHandler';
 
 let instancesCount = 0;
 
-const Section = props => {
+const Section =  React.forwardRef((props, ref) => {
 
   const [thisSectionNumber, setThisSectionNumber] = React.useState(0);
   const [active, setActive] = React.useState(false);
@@ -30,7 +30,7 @@ const Section = props => {
   }, []);
 
   return (
-    <Section.Wrapper className={active ? '--active' : ''}>
+    <Section.Wrapper className={active ? '--active' : ''} ref={ref}>
       {React.Children.map(props.children, child => {
         return React.cloneElement(child, {
           active: active,
@@ -39,7 +39,7 @@ const Section = props => {
       })}
     </Section.Wrapper>
   )
-}
+});
 
 Section.Wrapper = styled.section`
   background: linear-gradient(200deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);

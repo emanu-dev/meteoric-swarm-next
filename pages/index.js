@@ -44,19 +44,20 @@ const Home = () => {
   const socialElement = useRef(null);
   const cursor = useRef(null);
   const [activeSection, setActiveSection] = useState(0);
+  const sectionsRef = useRef([]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       sectionsHandler.handleScroll(debugElement, lineElement);
       setActiveSection(sectionsHandler.activeSectionNumber());
     });
-    console.log(document.querySelectorAll('div'));
+    
     sectionsHandler.updateWindowSize(mainComponent, lineElement);
 
     return () => {
       window.removeEventListener("scroll", () => {sectionsHandler.handleScroll(debugElement, lineElement)});
     };
-  });
+  }, []);
 
   return (
     <Main ref={mainComponent}>
