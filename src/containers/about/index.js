@@ -18,7 +18,7 @@ const About = props => {
 			<Section.Content>
             <motion.div
               style={{
-                y: useTransform(scrollYProgress, [.10, .30], [60, -65]),
+                y: useTransform(scrollYProgress, [.10, .30], [-65, 60]),
               }}>
 				<Section.Center className='img-wrapper'>
 					<Image
@@ -28,10 +28,10 @@ const About = props => {
 						alt='Emanuel Prado'
 					/>
 				</Section.Center>
-			</motion.div>				
+			</motion.div>
 			<motion.div
               style={{
-                y: useTransform(scrollYProgress, [.10, .30], [50, -55]),
+                y: useTransform(scrollYProgress, [.10, .30], [-45, 40]),
               }}>				
 				<Text>
 					<Text.Header>I'm Emanuel<br/>Prado</Text.Header>

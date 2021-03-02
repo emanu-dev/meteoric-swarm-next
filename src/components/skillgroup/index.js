@@ -29,7 +29,7 @@ SkillGroup.Wrapper = styled.div`
       grid-column-start: span 2;
       opacity: 0;
       transform: translateX(-40px);
-      transition: opacity 300ms ease, transform 300ms ease-in-out;
+      transition: opacity 300ms ease 1s, transform 300ms ease-in-out 1s;
 
       &.--active {
         opacity: 1;

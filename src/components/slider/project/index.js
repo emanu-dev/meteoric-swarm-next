@@ -19,7 +19,7 @@ Project.Title = styled.h4`
   line-height: 100%;
   margin: 0 0 1rem 0;
   text-align: left;
-  text-shadow: 2px 2px 2px #000000;
+  text-shadow: 2px 2px 0px ${props => props.theme.colors.primary};
 `
 
 Project.Desc = styled.p`
@@ -56,7 +56,7 @@ Project.Image = styled.div`
 Project.Link = styled.a`
   background: rgba(0, 0, 0, .25);
   border: 1px solid rgba(255, 255, 255, .3);
-  box-shadow: 0 0 0 #ffffff;
+  box-shadow: 0 0 0 ${props => props.theme.colors.primary};
   color: ${props => props.theme.colors.textContrast};
   cursor: none;
   font-family: 'DejaVuSans', sans-serif;
@@ -70,7 +70,8 @@ Project.Link = styled.a`
   transition: box-shadow 300ms ease;
   
   &:hover {
-    box-shadow: 2px 2px 0 #ffffff;
+    box-shadow: 2px 2px 0 ${props => props.theme.colors.primary};
+    border-color: ${props => props.theme.colors.primary};
   }
 `
 

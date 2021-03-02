@@ -23,9 +23,9 @@ const Resume = props => {
 				<SkillGroup>
 					<Text.SmallHeader>skills</Text.SmallHeader>
 					{db.resume.skills.map((skill, index) => (
-						<SkillGroup.Item key={index} value={skill.value} delay={`${index / 10 + .25}s`}>
+						<SkillGroup.Item key={index} value={skill.value} delay={`${index / 10 + 1}s`}>
 							<Text.Small>{skill.title}</Text.Small>
-							<SkillGroup.Progress delay={`${(index + 1) / 10 + .25}s`} />
+							<SkillGroup.Progress delay={`${(index + 1) / 10 + 1}s`} />
 						</SkillGroup.Item>
 					))}
 				</SkillGroup>

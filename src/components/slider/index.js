@@ -69,7 +69,7 @@ Slider.Nav.ButtonGroup = styled.div`
 `
 
 Slider.Nav.Button = styled.div`
-  border: 1px solid ${props => props.theme.colors.primary};
+  border: 1px solid ${props => props.theme.colors.textContrastShaded};
   background-color: transparent;
   height: 40px;
   margin: 10px 0;
@@ -102,7 +102,8 @@ Slider.Nav.Button = styled.div`
   }
 
   &:hover {
-    border-color: ${props => props.theme.colors.textContrastShaded};
+    border-color: ${props => props.theme.colors.primary};
+    box-shadow: 2px 2px 0 ${props => props.theme.colors.primary};
   }
   
   &:not(:last-child)  {
@@ -121,7 +122,9 @@ Slider.Nav.Button = styled.div`
   }
 
   &.--active {
-
+    border-color: ${props => props.theme.colors.primary};
+    box-shadow: 2px 2px 0 ${props => props.theme.colors.primary};
+    
     &:before {
       left: 0;
       right: unset;
