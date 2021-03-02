@@ -10,8 +10,6 @@ const Section =  React.forwardRef((props, ref) => {
   const [active, setActive] = React.useState(false);
 
   React.useEffect(() => {
-    
-    instancesCount += 1;
     setThisSectionNumber(instancesCount);
 
     window.addEventListener(
@@ -40,6 +38,12 @@ const Section =  React.forwardRef((props, ref) => {
     </Section.Wrapper>
   )
 });
+
+Section.Center = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
 
 Section.Wrapper = styled.section`
   background: linear-gradient(200deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);

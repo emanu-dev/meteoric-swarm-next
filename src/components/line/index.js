@@ -7,7 +7,18 @@ const boundaries = {
   wide: 800,
 }
 
-const Line = styled.div`
+const Line = React.forwardRef((props, ref) => {
+  return (
+    <Line.Wrapper
+      ref={ref}
+      className={(props.activeSection === 0 || props.activeSection > props.totalSections) ? '--center' : props.activeSection % 2 === 0 ? '--right' : '--left'}
+    >
+      {props.children}
+    </Line.Wrapper>
+  )
+});
+
+Line.Wrapper = styled.div`
   background: rgb(255,255,255);
   background: linear-gradient(180deg, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%);
   height: 0px;
