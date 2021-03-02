@@ -5,7 +5,7 @@ const Main = styled.main`
   height: 2160px;
   margin: 0;
   min-height: 100vh;
-  overflow-y: hidden;
+  overflow: hidden;
   position: relative;
 `
 

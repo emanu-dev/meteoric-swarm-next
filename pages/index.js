@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Image from 'next/image';
+import parse from 'html-react-parser';
 import React, {useEffect, useRef, useState} from 'react';
 import db from '../src/db.json';
 
@@ -17,7 +18,6 @@ import Text from "../src/components/text";
 import Cursor from "../src/components/cursor";
 import Timeline from "../src/components/timeline";
 import SkillGroup from "../src/components/skillgroup";
-import Video from '../src/components/videoBg';
 
 const Debug = styled.div`
   background-color: #2c2c2c;
@@ -61,7 +61,6 @@ const Home = () => {
 
   return (
     <Main ref={mainComponent}>
-      <Video />
       <Cursor ref={cursor} />
       <Debug ref={debugElement}>Debug</Debug>
       <Line ref={lineElement} className='--center'>
@@ -97,7 +96,7 @@ const Home = () => {
           </Center>
           <Text>
             <Text.Header>I'm Emanuel<br/>Prado</Text.Header>
-            <Text.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text.Body>
+            <Text.Body>{parse(db.about)}</Text.Body>
           </Text>          
         </Section.Content>
       </Section>
@@ -135,8 +134,8 @@ const Home = () => {
         <Section.Header style={{textAlign: 'right'}}>More</Section.Header>
         <Section.Content>
           <Text>
-              <Text.Header>There is more...</Text.Header>
-              <Text.Body>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</Text.Body>
+              <Text.Header>{db.more.title}</Text.Header>
+              <Text.Body>{parse(db.more.body)}</Text.Body>
             </Text>          
           <Center>
           <Image

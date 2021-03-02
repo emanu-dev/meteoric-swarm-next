@@ -1,4 +1,9 @@
 {
+  "about" : "Since very young, I am fueled by a passion for <strong>CREATIVE VISUAL COMMUNICATION</strong>...",
+  "more" : {
+    "title": "There is more...",
+    "body": "Lorem ipsum dolor sit amet"
+  },
   "projects" : [
     {
       "name" : "Trip Agency Website Template",
