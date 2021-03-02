@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import React, {useEffect, useRef, useState} from 'react';
+import { motion, useViewportScroll, useTransform } from "framer-motion";
 
 import IconLinkedin from '../src/icons/iconLinkedin.svg';
 import IconGithub from '../src/icons/iconGithub.svg';
@@ -14,21 +14,9 @@ import Cursor from "../src/components/cursor";
 
 import Sections from "../src/containers";
 
-const Debug = styled.div`
-  background-color: #2c2c2c;
-  color: #fff;
-  display: none;
-  font-family: sans-serif;
-  padding: 10px 15px;
-  position: fixed;
-  text-transform: uppercase;
-  z-index: 9999;
-`
-
 const Home = () => {
   const lineElement = useRef(null);
   const mainComponent = useRef(null);
-  const socialElement = useRef(null);
   const cursor = useRef(null);
   const [activeSection, setActiveSection] = useState(0);
 
@@ -38,6 +26,10 @@ const Home = () => {
     [Sections.Projects, "Projects"],
     [Sections.More, "More"]
   ]);
+
+  const { scrollYProgress } = useViewportScroll();
+  const y = useTransform(scrollYProgress, [0, .15], [0, 200]);
+  const opacity = useTransform(scrollYProgress, [0, .15], [1, 0]);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
@@ -56,10 +48,15 @@ const Home = () => {
       <Cursor ref={cursor} />
       <Line ref={lineElement} className='--center' activeSection={activeSection} totalSections={sections.size}>
           <Line.Content>
-            <Line.Text>
-              See<br/>More<br/> ᐁ
-            </Line.Text>
-            <Line.Social ref={socialElement}>
+            <motion.div
+              style={{
+                y, opacity
+              }}> 
+              <Line.Text>
+                See<br/>More<br/> ᐁ  
+              </Line.Text>
+            </motion.div>
+            <Line.Social>
             <Line.Text>
               Find Me
             </Line.Text>

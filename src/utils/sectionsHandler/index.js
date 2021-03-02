@@ -9,7 +9,6 @@ const updateWindowSize = (mainComponent, lineElement, totalSections) => {
   lineElement.current.style.height = `${pageHeight-600}px`;
 }
 
-
 const activeSectionNumber = () => {
   return Math.round((document.documentElement.scrollTop + SECTION_OFFSET)/SECTION_HEIGHT);
 }

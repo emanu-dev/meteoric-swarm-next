@@ -32,7 +32,6 @@ const Section =  React.forwardRef((props, ref) => {
       {React.Children.map(props.children, child => {
         return React.cloneElement(child, {
           active: active,
-          className: active ? '--active' : '',
         })
       })}
     </Section.Wrapper>
@@ -51,7 +50,7 @@ Section.Wrapper = styled.section`
   opacity: 0;
   overflow: hidden;
   padding: 5rem 8rem;
-  transition: opacity 300ms ease;
+  transition: opacity 500ms ease-in-out;
 
   @media screen and (max-width: 600px) {
     padding: 3rem 6rem;   
@@ -98,17 +97,6 @@ Section.ContentWrapper = styled.div`
   margin: 0 auto;
   padding: 4rem 2rem;
   position: relative;
-  
-  img {
-    transition: transform 500ms ease-out;
-    transform: translateX(-75%);
-  }
-
-  &.--active {
-      img {
-        transform: translateX(0);
-      }
-  }
 
   @media screen and (max-width: 600px) {
     align-items: center;
@@ -124,26 +112,11 @@ Section.ContentWrapper.Full = styled.div`
   flex-direction: column;
   padding: 0;
 
-  div {
-    transition: transform 500ms ease;
-    transform: translateY(-75%);
-  }
-
-  &.--active {
-      div {
-        transform: translateX(0);
-      }
-  }
-
   @media screen and (max-width: 1000px) {
     align-items: center;
     display: flex;
     flex-direction: column;
     height: 100%;
-
-    div {
-      transform: translateX(25%);
-    }
   }  
 `
 

@@ -14,6 +14,17 @@ const Slider = styled.div`
   scroll-behavior: smooth;
   width: 100%;
   
+  &.--anim {
+    opacity: 0;
+    transform: scale(.25) skew(25deg);
+    transition: transform 500ms ease-in-out, opacity 500ms ease-in;
+
+    &.--on-screen {
+      opacity: 1;
+      transform: scale(1) skew(0deg);
+    }
+  }
+
   @media screen and (max-width: 600px) {
     margin-top: 50px;
   } 
@@ -40,6 +51,7 @@ Slider.Nav = styled.div`
   width: 80%;
   
   @media screen and (max-width: 600px) {
+    position: relative;
     width: 100%;
   }   
 `
@@ -62,14 +74,8 @@ Slider.Nav.Button = styled.div`
   height: 40px;
   margin: 10px 0;
   position: relative;
-  transition: transform 500ms ease;
   width: 20px;
   z-index: 9;
-  
-  @media screen and (max-width: 600px) {
-    border: none;
-    background-color: ${props => props.theme.colors.primary};
-  }
 
   &:before {
     content: ' ';
@@ -103,6 +109,17 @@ Slider.Nav.Button = styled.div`
     margin-right: 20px;
   }
 
+  &.--anim {
+    opacity: 0;
+    transform: translateY(100%);
+    transition: transform 500ms ease-out, opacity 500ms ease-in-out;
+
+    &.--on-screen {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   &.--active {
 
     &:before {
@@ -121,13 +138,25 @@ Slider.Nav.Button = styled.div`
   }
   
   @media screen and (max-width: 600px) {
-    pointer-events: none;
+    border: none;
+    background-color: ${props => props.theme.colors.primary};    
     height: 4px;
     opacity: .25;
-    transition: all 300ms ease;
+    pointer-events: none;
+    transition: all 300ms ease, transform 500ms ease-in-out;
 
     > p {
         display: none;
+    }
+
+    &.--anim {
+      &.--on-screen {
+        opacity: .25;
+
+        &.--active-mobile {
+          opacity: .5;
+        }        
+      }   
     }
 
     &.--active {
@@ -137,9 +166,8 @@ Slider.Nav.Button = styled.div`
     }
 
     &.--active-mobile {
-      background-color: ${props => props.theme.colors.textContrastShaded};
-      opacity: 1;
-    }
+      background-color: ${props => props.theme.colors.textContrast};
+    }    
   }    
 `
 
@@ -191,7 +219,7 @@ Slider.Wrapper = props => {
 
   return (
     <Slider.Nav ref={sliderNav}>
-      <Slider ref={sliderScroll} onScroll={() => {
+      <Slider ref={sliderScroll} className={`--anim ${props.active ? '--on-screen' : '' }`} onScroll={() => {
         setSliderScrollPosition(sliderScroll.current.scrollLeft);
       }}>
         
@@ -221,9 +249,10 @@ Slider.Wrapper = props => {
           <Slider.Nav.Button
             onMouseEnter={() => props.cursor.current.classList.add('--active')} 
             onMouseLeave={() => props.cursor.current.classList.remove('--active')}
-            className={`${Math.round(sliderScrollPosition/(slideWidth + slideMargin)) === index && '--active --active-mobile'}`}
+            className={
+              `--anim ${props.active ? '--on-screen' : ''} ${Math.round(sliderScrollPosition/(slideWidth + slideMargin)) === index ? '--active --active-mobile' : ''}`}
             key={index}
-            style={{width: `${slideWidth/props.db.projects.length}px`}}
+            style={{width: `${slideWidth/props.db.projects.length}px`, transitionDelay: `${.5 + index/5}s`}}
             onClick={() => {
               sliderScroll.current.scrollLeft = (slideWidth + slideMargin) * index;
             }}

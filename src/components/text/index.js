@@ -7,25 +7,18 @@ const Text = styled.div`
   flex-direction: column;
   overflow: hidden;
 
-  > h3, h6 {
+  &.--anim {
     opacity: 0;
-    transition: opacity 500ms ease, transform 300ms ease-in-out;
-    transform: translateX(-25%);
-  }
+    transform: translateX(-100%);
+    transition: transform 500ms ease-out, opacity 500ms ease-in-out;
 
-  > p {
-    opacity: 0;
-    transition: opacity 500ms ease 200ms, transform 300ms ease-in-out 200ms;    
-    transform: translateX(-25%);
-  }
-
-  &.--active {
-    > h3, h6, p {
+    &.--on-screen {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
     }
-  }
+  }  
 `
+
 Text.Header = styled.h3`
   background: ${props => props.theme.colors.primaryGradient};
   font-family: 'Atkinson Hyperlegible', sans-serif;
