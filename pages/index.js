@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
+import Head from 'next/head';
 import { motion, useViewportScroll, useTransform } from "framer-motion";
 
 import IconLinkedin from '../src/icons/iconLinkedin.svg';
@@ -30,21 +31,38 @@ const Home = () => {
   const { scrollYProgress } = useViewportScroll();
   const y = useTransform(scrollYProgress, [0, .15], [0, 200]);
   const opacity = useTransform(scrollYProgress, [0, .15], [1, 0]);
+  let interval = 0;
+
 
   useEffect(() => {
     window.addEventListener("scroll", () => {
       setActiveSection(sectionsHandler.activeSectionNumber());
+      document.getElementById('line').classList.add('--loaded');
     });
     
     sectionsHandler.updateWindowSize(mainComponent, lineElement, sections.size + 2);
 
+    document.querySelector(".loading").classList.add('--loaded');
+    interval = window.setInterval(() => {
+      document.body.classList.add('--loaded');
+      document.getElementById('line').classList.add('--loaded');
+      lineElement.current.style.height = `${sectionsHandler.getPageHeight()-600}px`;
+    }, 5000);
+
     return () => {
-      window.removeEventListener("scroll", () => {setActiveSection(sectionsHandler.activeSectionNumber())});
+      window.removeEventListener("scroll", () => {
+        setActiveSection(sectionsHandler.activeSectionNumber())
+        document.getElementById('line').classList.add('--loaded');
+      });
+      window.clearInterval(interval);
     };
   }, []);
 
   return (
     <Main ref={mainComponent}>
+      <Head>
+        <title>M E T E O R I C S W A R M</title>
+      </Head>
       <Cursor ref={cursor} />
       <Line ref={lineElement} className='--center' activeSection={activeSection} totalSections={sections.size}>
           <Line.Content>
@@ -56,10 +74,10 @@ const Home = () => {
                 See<br/>More<br/> ᐁ  
               </Line.Text>
             </motion.div>
-            <Line.Social>
-            <Line.Text>
-              Find Me
-            </Line.Text>
+            <Line.Social id='social'>
+              <Line.Text>
+                Find Me
+              </Line.Text>
               <Line.Social.Icon cursor={cursor} link='https://br.linkedin.com/in/emanuel-prado'><IconLinkedin /></Line.Social.Icon>
               <Line.Social.Icon cursor={cursor} link='https://codepen.io/emanu-fer'><IconCodepen /></Line.Social.Icon>
               <Line.Social.Icon cursor={cursor} link='https://github.com/emanu-dev'><IconGithub /></Line.Social.Icon>
