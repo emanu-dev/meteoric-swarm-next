@@ -30,16 +30,10 @@ const Home = () => {
 
   const { scrollYProgress } = useViewportScroll();
   const y = useTransform(scrollYProgress, [0, .15], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, .15], [1, 0]);
   let interval = 0;
 
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setActiveSection(sectionsHandler.activeSectionNumber());
-      document.getElementById('line').classList.add('--loaded');
-    });
-    
     sectionsHandler.updateWindowSize(mainComponent, lineElement, sections.size + 2);
 
     document.querySelector(".loading").classList.add('--loaded');
@@ -47,28 +41,40 @@ const Home = () => {
       document.body.classList.add('--loaded');
       document.getElementById('line').classList.add('--loaded');
       lineElement.current.style.height = `${sectionsHandler.getPageHeight()-600}px`;
+      window.clearInterval(interval);
     }, 5000);
-
+    
+    window.addEventListener("scroll", () => {
+      setActiveSection(sectionsHandler.activeSectionNumber());
+      document.getElementById('line').classList.add('--loaded');
+    });
+    
     return () => {
       window.removeEventListener("scroll", () => {
         setActiveSection(sectionsHandler.activeSectionNumber())
-        document.getElementById('line').classList.add('--loaded');
       });
-      window.clearInterval(interval);
     };
   }, []);
 
   return (
     <Main ref={mainComponent}>
       <Head>
-        <title>M E T E O R I C S W A R M</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#CA32FF" />
+        <meta name="msapplication-TileColor" content="#CA32FF" />
+        <meta name="theme-color" content="#CA32FF" />
+        <title>| M E T E O R I C S W A R M |</title>
       </Head>
       <Cursor ref={cursor} />
       <Line ref={lineElement} className='--center' activeSection={activeSection} totalSections={sections.size}>
           <Line.Content>
             <motion.div
+              id='seemore'
               style={{
-                y, opacity
+                y
               }}> 
               <Line.Text>
                 See<br/>More<br/> ᐁ  

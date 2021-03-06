@@ -1,5 +1,6 @@
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import React from 'react';
+import LoadingIcon from '../src/components/loadingIcon';
 import '../public/fonts/fonts.css';
 
 const theme = {
@@ -62,39 +63,14 @@ const GlobalStyle = createGlobalStyle`
         overflow-y: scroll;
       }
   }
-  
-  .loading {
-    align-items: center;
-    background-color: black;
-    color: ${theme.colors.textContrastShaded};
-    display: flex;
-    font-family: 'DejaVuSans', sans-serif;
-    font-size: clamp(40px, 4rem, 70px);
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    position: absolute;
-    transition: opacity 500ms ease-out 1s, visibility 500ms ease 1s;
-    text-transform: uppercase;
-    width: 100vw;
-    z-index: 9999;
-
-    &.--loaded {
-      opacity: 0;
-      visibility: hidden;
-    }
-  }
 `
 
 export default function App({ Component, pageProps }) {
-
   return (
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <div className="loading">
-          loading... 
-        </div>
+        <LoadingIcon />
         <Component {...pageProps} />
       </ThemeProvider>
     </>

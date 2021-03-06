@@ -5,11 +5,13 @@ import { motion } from "framer-motion";
 const fillStroke = {
   hidden: {
     opacity: 0,
+    pathOffset: 1,
     pathLength: 0,
     fill: "rgba(255, 255, 255, 0)"
   },
   visible: {
     opacity: 1,
+    pathOffset: 0,
     pathLength: 1,
     fill: "rgba(255, 255, 255, 1)"
   }
@@ -374,7 +376,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2 },
+          default: { duration: 2, ease: "easeInOut", delay: 3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -384,7 +386,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2 },
+          default: { duration: 2, ease: "easeInOut", delay: 3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -394,7 +396,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2 },
+          default: { duration: 2, ease: "easeInOut", delay: 3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -404,7 +406,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2 },
+          default: { duration: 2, ease: "easeInOut", delay: 3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -414,7 +416,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2 },
+          default: { duration: 2, ease: "easeInOut", delay: 3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -424,7 +426,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2 },
+          default: { duration: 2, ease: "easeInOut", delay: 3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -434,7 +436,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -444,7 +446,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -454,7 +456,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -464,7 +466,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -474,7 +476,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -484,7 +486,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -494,7 +496,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -504,7 +506,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 3.3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -514,7 +516,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 3.3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -524,7 +526,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 3.3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -534,7 +536,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 3.3 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -544,7 +546,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 2.7 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -554,7 +556,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 2.7 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />
@@ -564,7 +566,7 @@ const SvgTitle = () => (
         initial="hidden"
         animate="visible"
         transition={{
-          default: { duration: 2, ease: "easeInOut", delay: 2.5 },
+          default: { duration: 2, ease: "easeInOut", delay: 2.7 },
           fill: { duration: 2, ease: [1, 0, 0.8, 1] }
         }}
       />

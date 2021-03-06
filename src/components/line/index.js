@@ -27,14 +27,15 @@ Line.Wrapper = styled.div`
   opacity: .25;
   pointer-events: default;
   position: absolute;
-  transition: transform 300ms cubic-bezier(0.390, 0.575, 0.565, 1.000), height 2s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+  transition: transform 300ms ease-in-out, height 2s cubic-bezier(.82,0,.34,1.08);
   top: 480px;
   width: 2px;
   z-index: 999;
 
-  > div {
-    opacity: 0;
-  }
+	#seemore {
+		opacity: 0;
+		transition: opacity 300ms ease 1s;
+	}
 
 	#social {
 		transition: visibility 0s ease 1s;
@@ -45,6 +46,10 @@ Line.Wrapper = styled.div`
 		#social {
 			visibility: visible;
 		}
+
+		#seemore {
+			opacity: 1;
+		}
 	}
 
 	&.--center {
@@ -53,7 +58,7 @@ Line.Wrapper = styled.div`
 	
 		&.--loaded {
 			> div {
-					opacity: 1;
+				opacity: 1;
 			}
 		}
 	}
