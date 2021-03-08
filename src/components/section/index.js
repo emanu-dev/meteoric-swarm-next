@@ -2,16 +2,11 @@ import styled from 'styled-components';
 import React from 'react';
 import SectionsHandler from '../../utils/sectionsHandler';
 
-let instancesCount = 0;
-
 const Section =  React.forwardRef((props, ref) => {
 
-  const [thisSectionNumber, setThisSectionNumber] = React.useState(0);
   const [active, setActive] = React.useState(false);
 
   React.useEffect(() => {
-    setThisSectionNumber(instancesCount);
-
     window.addEventListener(
       'scroll',
       () => {
@@ -22,7 +17,9 @@ const Section =  React.forwardRef((props, ref) => {
     return () => {
       window.removeEventListener(
         'scroll',
-        setActive(SectionsHandler.activeSectionNumber() === props.count)
+        () => {
+          setActive(SectionsHandler.activeSectionNumber() === props.count);
+        }
       );
     }
   }, []);

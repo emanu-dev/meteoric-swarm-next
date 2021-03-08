@@ -53,6 +53,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    background: #000000;
     box-sizing: border-box;
     color: ${theme.colors.textContrast};
     margin: 0;

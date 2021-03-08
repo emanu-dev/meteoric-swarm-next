@@ -12,7 +12,8 @@ const Line = React.forwardRef((props, ref) => {
 		<Line.Wrapper
 			id='line'
 			ref={ref}
-			className={(props.activeSection === 0 || props.activeSection > props.totalSections) ? '--center' : props.activeSection % 2 === 0 ? '--right' : '--left'}
+			className={`${(props.activeSection === 0 || props.activeSection > props.totalSections) ? '--center' : props.activeSection % 2 === 0 ? '--right' : '--left'} ${props.loaded && '--loaded'}`}
+			style={{height: props.loaded && `${props.pageHeight - 600}px`}}
 		>
 			{props.children}
 		</Line.Wrapper>

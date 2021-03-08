@@ -253,9 +253,13 @@ Slider.Wrapper = props => {
             onMouseEnter={() => props.cursor.current.classList.add('--active')} 
             onMouseLeave={() => props.cursor.current.classList.remove('--active')}
             className={
-              `--anim ${props.active ? '--on-screen' : ''} ${Math.round(sliderScrollPosition/(slideWidth + slideMargin)) === index ? '--active --active-mobile' : ''}`}
+              `--anim ${props.active ? '--on-screen' : ''} ${Math.round(sliderScrollPosition/(slideWidth + slideMargin)) === index ? '--active --active-mobile' : ''}`
+            }
             key={index}
-            style={{width: `${slideWidth/props.db.projects.length}px`, transitionDelay: `${.5 + index/5}s`}}
+            style={{
+              width: `${slideWidth/props.db.projects.length}px`, 
+              transitionDelay: `${.5 + index/5}s`}
+            }
             onClick={() => {
               sliderScroll.current.scrollLeft = (slideWidth + slideMargin) * index;
             }}

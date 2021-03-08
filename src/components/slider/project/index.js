@@ -8,7 +8,7 @@ const Project = styled.div`
 
   @media screen and (max-width: 1000px) {
     height: auto;
-    padding-left: 2rem;
+    padding-left: 3rem;
     top: -10%;
   }  
 `
