@@ -16,7 +16,7 @@ const Resume = props => {
 							<Text.Small>{item.period}</Text.Small>
 							<Text.SmallHeader>{item.title}</Text.SmallHeader>
 							<Text.Body>{item.place}</Text.Body>
-							{item.location !== "" && <Text.Small><em>{item.location}</em></Text.Small>}
+							<Text.Small>{item.location}</Text.Small>
 						</Timeline.Item>
 					))}
 				</Timeline>

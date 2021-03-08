@@ -59,7 +59,8 @@ SkillGroup.Item = styled.div`
   transition: opacity 500ms ease ${props => props.delay};
   
   > p {
-    margin: 0;
+    font-size: clamp(11px,1.6rem,16px);
+    margin: 0 0 .5rem 0;
     text-align: left;
     text-transform: uppercase;
   }
@@ -74,7 +75,9 @@ SkillGroup.Item = styled.div`
 
   @media screen and (max-width: 600px) {
     align-items: flex-end;
-    text-align: right;
+    > p {
+      text-align: right;
+    }
   }  
 `
 
@@ -86,7 +89,7 @@ SkillGroup.Progress = styled.div`
 
   @media screen and (max-width: 600px) {
     height: 15px;
-    width: 30vw;
+    width: 100%;
   }
   
   &:before {

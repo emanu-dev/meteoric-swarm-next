@@ -5,15 +5,15 @@ import { motion } from "framer-motion";
 const fillStroke = {
   hidden: {
     opacity: 0,
-    pathOffset: 1,
+    pathOffset: 0,
     pathLength: 0,
     fill: "rgba(255, 255, 255, 0)"
   },
   visible: {
     opacity: 1,
-    pathOffset: 0,
+    pathOffset: 1,
     pathLength: 1,
-    fill: "rgba(255, 255, 255, 1)"
+    fill: "rgba(255, 255, 255, .8)"
   }
 };
 

@@ -1,8 +1,22 @@
 {
-  "about" : "Since very young, I am fueled by a passion for <strong>CREATIVE VISUAL COMMUNICATION</strong>. That lead me to pursue knowledge in every medium I found out I could create art with.<br /><br />As a result, I developed a diverse skillset that ranges across several creative fields.",
+  "about" : "And I <strong>LOVE CREATING</strong>!<br /><br /> Since very young, I am fueled by a passion for <strong>CREATIVE VISUAL COMMUNICATION</strong>. That lead me to pursue knowledge in every medium I found out I could create art with.<br /><br />As a result, I've developed a diverse skillset that ranges across several creative fields.",
   "more" : {
     "title": "There is more...",
-    "body": "Lorem ipsum dolor sit amet"
+    "body": "Besides my projects up above, you can also check out:",
+    "links" : [
+      {
+        "title": "My courses on webdev at Skillshare",
+        "href": "https://www.skillshare.com/user/ezf0009"
+      },
+      {
+        "title": "My GameDev projects at itch.io",
+        "href": "https://emanu-dev.itch.io/"
+      },
+      {
+        "title": "My 3D models at Sketchfab",
+        "href": "#"
+      }
+    ]
   },
   "projects" : [
     {
@@ -21,58 +35,70 @@
       "name" : "Sports/Games Magazine Layout Design",
       "image" : "/img/projects/magazine.jpg",
       "link" : "#",
-      "desc": "A football magazine, that plays with the idea of fictional retro videogame footballers."
+      "desc": "A football/soccer magazine, that plays with the idea of fictional retro videogame footballers."
     }                
   ],
   "resume" : {
     "timeline" : [
       {
         "period" : "2017 - CURRENT",
-        "title" : "DESIGN SPECIALIST/FRONT END DEVELOPER",
-        "place" : "Entrecliques - Digital Media Intelligence",
-        "location" : ""
+        "title" : "DESIGN SPECIALIST & FRONTEND DEVELOPER",
+        "place" : "",
+        "location" : "Entrecliques - Digital Media Intelligence"
       },
       {
         "period" : "2013 - 2018",
-        "title" : "UNDERGRAD. DEG. - SYSTEM ANALYSIS AND DEV.",
-        "place" : "College of Technology - FATEC",
-        "location" : "ITAPETININGA, SAO PAULO - BRAZIL"
+        "title" : "UNDERGRADUATE DEGREE",
+        "place" : "System Analysis and Dev.",
+        "location" : "College of Technology of Itapetininga - FATEC, Brazil"
       },
       {
         "period" : "2014 - 2015",
-        "title" : "NON-DEGREE PROGRAM - SOFTWARE ENG.",
-        "place" : "Auburn University",
-        "location" : "AUBURN, ALABAMA - USA"
+        "title" : "NON-DEGREE PROGRAM",
+        "place" : "Software Engineering",
+        "location" : "Auburn University, USA"
       }
     ],
     "skills" : [
       {
-        "title" : "Layout design",
-        "value" : "80"
+        "title" : "Gen. Design [Photoshop]",
+        "value" : "90"
+      },
+      {
+        "title" : "Layout design [InDesign]",
+        "value" : "85"
       },
       {
         "title" : "HTML/CSS",
         "value" : "80"
       },
       {
-        "title" : "React",
+        "title" : "JS FrontEnd [incl. React]",
+        "value" : "70"
+      },
+      {
+        "title" : "UI Design [Figma]",
+        "value" : "70"
+      },
+      {
+        "title" : "3D Art [Blender]",
         "value" : "65"
       },
       {
-        "title" : "3D Modelling",
+        "title" : "Video Editing [Premiere]",
+        "value" : "60"
+      },
+      {
+        "title" : "Animation [After Effects]",
+        "value" : "55"
+      },
+      {
+        "title" : "Game Dev [Unity, Godot]",
         "value" : "50"
       },
       {
-        "title" : "Skill 5",
-        "value" : "50"
-      },
-      {
-        "title" : "Skill 6",
-        "value" : "50"
-      },
-      {
-        "title" : "Skill 7",
-        "value" : "50"
+        "title" : "BackEnd [Node.Js]",
+        "value" : "40"
       }
     ]
   }

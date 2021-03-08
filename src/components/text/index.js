@@ -5,7 +5,6 @@ const Text = styled.div`
   color: ${props => props.theme.colors.textContrast};
   display: flex;
   flex-direction: column;
-  overflow: hidden;
 
   &.--anim {
     opacity: 0;
@@ -46,6 +45,10 @@ Text.Body = styled.p`
   font-size: clamp(16px, 2.2rem, 22px);
   font-weight: 300;
   line-height: 120%;
+  
+  > a {
+    background-color: pink;
+  }    
 `
 
 Text.Small = styled.p`
@@ -55,6 +58,28 @@ Text.Small = styled.p`
   font-weight: 300;
   line-height: 100%;
   text-transform: uppercase;
+`
+Text.Button = styled.a`
+  background: rgba(0, 0, 0, .25);
+  border: 1px solid rgba(255, 255, 255, .3);
+  box-shadow: 0 0 0 ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.textContrast};
+  cursor: none;
+  font-family: 'DejaVuSans', sans-serif;
+  font-size: clamp(12px, 1.6rem, 16px);
+  font-weight: 300;
+  margin: 0 0 1rem 0;
+  padding: 10px 20px;
+  top: 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: box-shadow 300ms ease;
+  width: fit-content;
+  
+  &:hover {
+    box-shadow: 2px 2px 0 ${props => props.theme.colors.primary};
+    border-color: ${props => props.theme.colors.primary};
+  }
 `
 
 export default Text;

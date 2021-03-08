@@ -52,7 +52,8 @@ Timeline.Item = styled.div`
 
   > p {
     text-align: right;
-    margin: 1rem 0;
+    margin: 0;
+    line-height: 120%;
   }
   
   > h6 {

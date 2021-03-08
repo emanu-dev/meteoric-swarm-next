@@ -28,8 +28,8 @@ const About = props => {
 			<Section.Content>
 				<motion.div
 					style={{
-						rotateZ: useTransform(scrollYProgress, [sectionRange[0], sectionRange[1]], [-15, 15]),
-						scale: useTransform(scrollYProgress, [sectionRange[0], sectionRange[1]], [.8, 1.2]), 
+						rotateZ: useTransform(scrollYProgress, [sectionRange[0], sectionRange[1]], [-8, 15]),
+						scale: useTransform(scrollYProgress, [sectionRange[0], sectionRange[1]], [.9, 1.1]), 
 					}}>
 					<Section.Center className='img-wrapper'>
 						<Image

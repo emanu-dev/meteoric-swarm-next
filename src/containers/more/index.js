@@ -28,11 +28,21 @@ const More = props => {
 				<Text>
 					<Text.Header>{db.more.title}</Text.Header>
 					<Text.Body>{parse(db.more.body)}</Text.Body>
+					{db.more.links.map((item, index) => (
+						<Text.Button key={index}
+							 onMouseEnter={() => props.cursor.current.classList.add('--active')}
+							 onMouseLeave={() => props.cursor.current.classList.remove('--active')}
+							 target='_blank'
+							 rel='noopener noreferrer'
+							 href={item.href}>
+								{item.title}
+						</Text.Button>
+					))}
 				</Text>
 				<motion.div
 					style={{
-						rotateZ: useTransform(scrollYProgress, [sectionRange[0], sectionRange[1]], [15, -15]),
-						scale: useTransform(scrollYProgress, [sectionRange[0], sectionRange[1]], [.8, 1.2]), 
+						rotateZ: useTransform(scrollYProgress, [sectionRange[0], sectionRange[1]], [8, -15]),
+						scale: useTransform(scrollYProgress, [sectionRange[0], sectionRange[1]], [.9, 1.1]),
 					}}>
 					<Section.Center>
 						<Image
