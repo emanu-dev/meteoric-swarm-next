@@ -64,7 +64,22 @@ const Home = () => {
 				<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#9f00a7" />
 				<meta name="msapplication-TileColor" content="#9f00a7" />
 				<meta name="theme-color" content="#9f00a7" />
-				<title>| M E T E O R I C S W A R M |</title>
+
+				<title>[ᴍᴇᴛᴇᴏʀɪᴄsᴡᴀʀᴍ] 𝘣𝘺 𝘌𝘮𝘢𝘯𝘶𝘦𝘭 𝘗𝘳𝘢𝘥𝘰</title>
+				<meta name="title" content="[ᴍᴇᴛᴇᴏʀɪᴄsᴡᴀʀᴍ] 𝘣𝘺 𝘌𝘮𝘢𝘯𝘶𝘦𝘭 𝘗𝘳𝘢𝘥𝘰" />
+				<meta name="description" content="Blurring the line between graphic, web and game design." />
+
+				<meta property="og:type" content="website" />
+				<meta property="og:url" content="https://meteoricswarm.space/" />
+				<meta property="og:title" content="[ᴍᴇᴛᴇᴏʀɪᴄsᴡᴀʀᴍ] 𝘣𝘺 𝘌𝘮𝘢𝘯𝘶𝘦𝘭 𝘗𝘳𝘢𝘥𝘰" />
+				<meta property="og:description" content="Blurring the line between graphic, web and game design." />
+				<meta property="og:image" content="/og.jpg" />
+
+				<meta property="twitter:card" content="summary_large_image" />
+				<meta property="twitter:url" content="https://meteoricswarm.space/" />
+				<meta property="twitter:title" content="[ᴍᴇᴛᴇᴏʀɪᴄsᴡᴀʀᴍ] 𝘣𝘺 𝘌𝘮𝘢𝘯𝘶𝘦𝘭 𝘗𝘳𝘢𝘥𝘰" />
+				<meta property="twitter:description" content="Blurring the line between graphic, web and game design." />
+				<meta property="twitter:image" content="/og.jpg" />
 			</Head>
 			<Cursor ref={cursor} />
 			<Line
