@@ -61,9 +61,9 @@ const Home = () => {
 				<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 				<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 				<link rel="manifest" href="/site.webmanifest" />
-				<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#CA32FF" />
-				<meta name="msapplication-TileColor" content="#CA32FF" />
-				<meta name="theme-color" content="#CA32FF" />
+				<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#9f00a7" />
+				<meta name="msapplication-TileColor" content="#9f00a7" />
+				<meta name="theme-color" content="#9f00a7" />
 				<title>| M E T E O R I C S W A R M |</title>
 			</Head>
 			<Cursor ref={cursor} />
