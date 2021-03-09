@@ -35,7 +35,7 @@ const About = props => {
 						<Image
 							src='/img/me.png'
 							width={450}
-							height={430}
+							height={450}
 							alt='Emanuel Prado'
 						/>
 					</Section.Center>

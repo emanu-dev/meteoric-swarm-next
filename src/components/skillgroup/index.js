@@ -85,7 +85,7 @@ SkillGroup.Progress = styled.div`
   border: 1px solid ${props => props.theme.colors.textContrastShaded};
   height: 25px;
   position: relative;
-  width: 200px;
+  width: 100%;
 
   @media screen and (max-width: 600px) {
     height: 15px;

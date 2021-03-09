@@ -9,12 +9,12 @@
         "href": "https://www.skillshare.com/user/ezf0009"
       },
       {
-        "title": "My GameDev projects at itch.io",
+        "title": "GameDev projects at itch.io",
         "href": "https://emanu-dev.itch.io/"
       },
       {
-        "title": "My 3D models at Sketchfab",
-        "href": "#"
+        "title": "Drawings, Renders and misc art at Deviantart",
+        "href": "https://www.deviantart.com/emanubit/gallery"
       }
     ]
   },
@@ -61,7 +61,7 @@
     ],
     "skills" : [
       {
-        "title" : "Gen. Design [Photoshop]",
+        "title" : "Graphic Design [Photoshop]",
         "value" : "90"
       },
       {
@@ -74,31 +74,31 @@
       },
       {
         "title" : "JS FrontEnd [incl. React]",
-        "value" : "70"
-      },
-      {
-        "title" : "UI Design [Figma]",
-        "value" : "70"
-      },
-      {
-        "title" : "3D Art [Blender]",
-        "value" : "65"
-      },
-      {
-        "title" : "Video Editing [Premiere]",
         "value" : "60"
       },
       {
-        "title" : "Animation [After Effects]",
+        "title" : "UI Design [Figma]",
+        "value" : "60"
+      },
+      {
+        "title" : "3D Art [Blender]",
         "value" : "55"
       },
       {
-        "title" : "Game Dev [Unity, Godot]",
+        "title" : "Video Editing [Premiere]",
         "value" : "50"
       },
       {
-        "title" : "BackEnd [Node.Js]",
+        "title" : "Animation [After Effects]",
+        "value" : "45"
+      },
+      {
+        "title" : "Game Dev [Unity, Godot]",
         "value" : "40"
+      },
+      {
+        "title" : "BackEnd [Node.Js]",
+        "value" : "30"
       }
     ]
   }

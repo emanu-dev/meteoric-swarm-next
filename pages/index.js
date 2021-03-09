@@ -19,7 +19,7 @@ const Home = () => {
 	const lineElement = useRef(null);
 	const mainComponent = useRef(null);
 	const cursor = useRef(null);
-	
+
 	const [activeSection, setActiveSection] = useState(0);
 	const [pageHeight, setPageHeight] = useState(0);
 	const [loaded, setLoaded] = useState(false);
@@ -98,7 +98,7 @@ const Home = () => {
 						}}>
 						<Line.Text>
 							See<br />More<br /> ᐁ
-              </Line.Text>
+            </Line.Text>
 					</motion.div>
 					<motion.div
 						id='social'
@@ -108,7 +108,7 @@ const Home = () => {
 						<Line.Social>
 							<Line.Text>
 								Find Me
-                </Line.Text>
+              </Line.Text>
 							<Line.Social.Icon cursor={cursor} link='https://br.linkedin.com/in/emanuel-prado'><IconLinkedin /></Line.Social.Icon>
 							<Line.Social.Icon cursor={cursor} link='https://codepen.io/emanu-fer'><IconCodepen /></Line.Social.Icon>
 							<Line.Social.Icon cursor={cursor} link='https://github.com/emanu-dev'><IconGithub /></Line.Social.Icon>
@@ -122,7 +122,7 @@ const Home = () => {
 				</Title>
 			</Section.Main>
 			{[...sections].map(([Component, name], index) => (
-				<Component 
+				<Component
 					key={index}
 					name={name}
 					count={index + 1}
