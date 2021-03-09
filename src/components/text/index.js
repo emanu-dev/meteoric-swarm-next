@@ -42,7 +42,7 @@ Text.SmallHeader = styled.h6`
 Text.Body = styled.p`
   color: ${props => props.theme.colors.textContrast};
   font-family: 'DejaVuSans', sans-serif;
-  font-size: clamp(16px, 2.2rem, 22px);
+  font-size: clamp(14px, 2.2rem, 22px);
   font-weight: 300;
   line-height: 120%;
   
