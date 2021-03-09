@@ -68,18 +68,19 @@ const Home = () => {
 				<title>[ᴍᴇᴛᴇᴏʀɪᴄsᴡᴀʀᴍ] 𝘣𝘺 𝘌𝘮𝘢𝘯𝘶𝘦𝘭 𝘗𝘳𝘢𝘥𝘰</title>
 				<meta name="title" content="[ᴍᴇᴛᴇᴏʀɪᴄsᴡᴀʀᴍ] 𝘣𝘺 𝘌𝘮𝘢𝘯𝘶𝘦𝘭 𝘗𝘳𝘢𝘥𝘰" />
 				<meta name="description" content="Blurring the line between graphic, web and game design." />
+				<meta name="robots" content="index, follow" />
 
 				<meta property="og:type" content="website" />
 				<meta property="og:url" content="https://meteoricswarm.space/" />
 				<meta property="og:title" content="[ᴍᴇᴛᴇᴏʀɪᴄsᴡᴀʀᴍ] 𝘣𝘺 𝘌𝘮𝘢𝘯𝘶𝘦𝘭 𝘗𝘳𝘢𝘥𝘰" />
 				<meta property="og:description" content="Blurring the line between graphic, web and game design." />
-				<meta property="og:image" content="/og.jpg" />
+				<meta property="og:image" content="og.jpg" />
 
 				<meta property="twitter:card" content="summary_large_image" />
 				<meta property="twitter:url" content="https://meteoricswarm.space/" />
 				<meta property="twitter:title" content="[ᴍᴇᴛᴇᴏʀɪᴄsᴡᴀʀᴍ] 𝘣𝘺 𝘌𝘮𝘢𝘯𝘶𝘦𝘭 𝘗𝘳𝘢𝘥𝘰" />
 				<meta property="twitter:description" content="Blurring the line between graphic, web and game design." />
-				<meta property="twitter:image" content="/og.jpg" />
+				<meta property="twitter:image" content="og.jpg" />
 			</Head>
 			<Cursor ref={cursor} />
 			<Line
