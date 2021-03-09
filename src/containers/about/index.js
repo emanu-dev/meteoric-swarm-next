@@ -31,7 +31,7 @@ const About = props => {
 						rotateZ: useTransform(scrollYProgress, [sectionRange[0], sectionRange[1]], [-8, 15]),
 						scale: useTransform(scrollYProgress, [sectionRange[0], sectionRange[1]], [.9, 1.1]), 
 					}}>
-					<Section.Center className='img-wrapper'>
+					<Section.Center style={{ position: "relative", top: "-4rem"}}>
 						<Image
 							src='/img/me.png'
 							width={450}
