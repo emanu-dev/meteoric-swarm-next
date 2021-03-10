@@ -126,7 +126,7 @@ Line.Text = styled.p`
   color: #ffffff;
   font-family: 'DejaVuSans', sans-serif;
   font-size: clamp(18px, 2.5rem, 250px);
-  font-weight: 300;
+  font-weight: 200;
   left: 20px;
   text-align: left;
   text-transform: uppercase;

@@ -95,7 +95,7 @@ Slider.Nav.Button = styled.div`
     color: ${props => props.theme.colors.textContrastShaded};
     font-family: 'DejaVuSans', sans-serif;
     font-size: 1.5rem;
-    font-weight: 300;
+    font-weight: 200;
     line-height: 130%;
     margin: 1rem 0 0 1rem;
     transition: font-size 300ms ease;

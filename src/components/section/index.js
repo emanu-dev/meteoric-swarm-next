@@ -71,7 +71,7 @@ Section.Main = styled.section`
 Section.Header = styled.h3`
   font-family: 'DejaVuSans', sans-serif;
   font-size: clamp(20px, 2.5rem, 25px);
-  font-weight: 300;
+  font-weight: 200;
   margin: 2rem auto;
   max-width: 1600px;
   opacity: .25;

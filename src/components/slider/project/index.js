@@ -25,7 +25,7 @@ Project.Title = styled.h4`
 Project.Desc = styled.p`
   font-family: 'DejaVuSans', sans-serif;
   font-size: clamp(14px, 2rem, 20px);
-  font-weight: 300;
+  font-weight: 200;
   margin: 0 0 1rem 0;
   padding: 0 .5rem;
   text-align: left;
@@ -61,7 +61,7 @@ Project.Link = styled.a`
   cursor: none;
   font-family: 'DejaVuSans', sans-serif;
   font-size: 12px;
-  font-weight: 300;
+  font-weight: 200;
   padding: 10px 20px;
   position: relative;
   top: 20px;

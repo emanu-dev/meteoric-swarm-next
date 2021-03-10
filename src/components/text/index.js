@@ -48,7 +48,7 @@ Text.Body = styled.p`
   color: ${props => props.theme.colors.textContrast};
   font-family: 'DejaVuSans', sans-serif;
   font-size: clamp(14px, 2.2rem, 22px);
-  font-weight: 300;
+  font-weight: 200;
   line-height: 120%;
   
   > a {
@@ -60,7 +60,7 @@ Text.Small = styled.p`
   color: ${props => props.theme.colors.textContrastShaded};
   font-family: 'DejaVuSans', sans-serif;
   font-size: clamp(12px, 1.6rem, 16px);
-  font-weight: 300;
+  font-weight: 200;
   line-height: 100%;
   text-transform: uppercase;
 `
@@ -72,7 +72,7 @@ Text.Button = styled.a`
   cursor: none;
   font-family: 'DejaVuSans', sans-serif;
   font-size: clamp(12px, 1.6rem, 16px);
-  font-weight: 300;
+  font-weight: 200;
   margin: 0 0 1rem 0;
   padding: 10px 20px;
   top: 20px;
