@@ -20,8 +20,12 @@ const Text = styled.div`
 
 Text.Header = styled.h3`
   background: ${props => props.theme.colors.primaryGradient};
-  font-family: 'Atkinson Hyperlegible', sans-serif;
+  background-clip: text;
+  color: transparent;
+  font-family: 'Atkinson Hyperlegible', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: clamp(40px, 7rem, 70px);
+  font-weight: bolder;
+  font-weight: 700;
   line-height: 90%;
   margin: 0;
   text-transform: uppercase;
@@ -31,8 +35,9 @@ Text.Header = styled.h3`
 
 Text.SmallHeader = styled.h6`
   color: ${props => props.theme.colors.primary};
-  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-family: 'Atkinson Hyperlegible', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: clamp(18px, 2.4rem, 24px);
+  font-weight: bolder;
   font-weight: 700;
   line-height: 100%;
   margin: 0;
