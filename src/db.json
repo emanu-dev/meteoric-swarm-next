@@ -1,110 +1,108 @@
 {
-  "about" : "And I <strong>LOVE CREATING</strong>!<br /><br /> Since very young, I am fueled by a passion for <strong>CREATIVE VISUAL COMMUNICATION</strong>. That lead me to pursue knowledge in every medium I found out I could create art with.<br /><br />As a result, I've developed a diverse skillset that ranges across several creative fields.",
-  "more" : {
+  "about": "And I <strong>LOVE CREATING</strong>!<br /><br /> Since very young, I am fueled by a passion for <strong>CREATIVE VISUAL COMMUNICATION</strong>. That lead me to pursue knowledge in every medium I found out I could create art with.<br /><br />As a result, I've developed a diverse skillset that ranges across several creative fields.",
+  "more": {
     "title": "There is more...",
-    "body": "Besides my projects up above, you can also check out:",
-    "links" : [
+    "body": "My other creations:",
+    "links": [
       {
         "title": "My courses on webdev at Skillshare",
         "href": "https://www.skillshare.com/user/ezf0009"
       },
       {
-        "title": "GameDev projects at itch.io",
-        "href": "https://emanu-dev.itch.io/"
-      },
-      {
-        "title": "Drawings, Renders and misc art at Deviantart",
-        "href": "https://www.deviantart.com/emanubit/gallery"
+        "title": "Just a random sampled track I made ;)",
+        "href": "https://emanubit.bandcamp.com/track/back-to-basics"
       }
     ]
   },
-  "projects" : [
+  "projects": [
     {
-      "name" : "Trip Agency Website Template",
-      "image" : "/img/projects/outdoor.jpg",
-      "link" : "https://jekyll-travel-agency.netlify.app/",
+      "name": "Trip Agency Website Template",
+      "image": "/img/projects/outdoor.jpg",
+      "link": "https://jekyll-travel-agency.netlify.app/",
       "desc": "A website for a fictional camping/hiking travel agency. Statically generated using Jekyll."
     },
     {
-      "name" : "Fake Nintendo Direct Leak Generator",
-      "image" : "/img/projects/fdlg.jpg",
-      "link" : "https://fake-direct.vercel.app/",
+      "name": "Fake Nintendo Direct Leak Generator",
+      "image": "/img/projects/fdlg.jpg",
+      "link": "https://fake-direct.vercel.app/",
       "desc": "A parody website, where you can generate your own \"fake leaks\" for Nintendo game announcements. Built with React + Next.JS"
     },
     {
-      "name" : "Sports/Games Magazine Layout Design",
-      "image" : "/img/projects/magazine.jpg",
-      "link" : "https://www.behance.net/gallery/115030019/Retro-SoccerFootball-Magazine-Layout",
+      "name": "Sports/Games Magazine Layout Design",
+      "image": "/img/projects/magazine.jpg",
+      "link": "https://www.behance.net/gallery/115030019/Retro-SoccerFootball-Magazine-Layout",
       "desc": "A football/soccer magazine, that plays with the idea of fictional retro videogame footballers."
-    }                
+    },
+    {
+      "name": "WIP Retro FPS Game",
+      "image": "/img/projects/hazardpulse.jpg",
+      "link": "https://emanu-dev.itch.io/hazardpulse",
+      "desc": "A work-in-progress proof of concept Retro FPS built with the Godot engine, inspired by the likes of Doom and Wolfenstein."
+    }
   ],
-  "resume" : {
-    "timeline" : [
+  "resume": {
+    "timeline": [
       {
-        "period" : "2021 - CURRENT",
-        "title" : "FRONTEND DEVELOPER",
-        "place" : "",
-        "location" : "Ploomes"
-      },      
-      {
-        "period" : "2017 - CURRENT",
-        "title" : "DESIGN SPECIALIST & FRONTEND DEVELOPER",
-        "place" : "",
-        "location" : "Entrecliques - Digital Media Intelligence"
+        "period": "CURRENT",
+        "title": "SENIOR FRONTEND DEVELOPER",
+        "place": "",
+        "location": "Ploomes Sistemas"
       },
       {
-        "period" : "2013 - 2018",
-        "title" : "UNDERGRADUATE DEGREE",
-        "place" : "System Analysis and Dev.",
-        "location" : "College of Technology of Itapetininga - FATEC, Brazil"
+        "period": "2017 - 2021",
+        "title": "DESIGN SPECIALIST & FRONTEND DEVELOPER",
+        "place": "",
+        "location": "Entrecliques - Digital Media Intelligence"
       },
       {
-        "period" : "2014 - 2015",
-        "title" : "NON-DEGREE PROGRAM",
-        "place" : "Software Engineering",
-        "location" : "Auburn University, USA"
+        "period": "2013 - 2018",
+        "title": "UNDERGRADUATE DEGREE",
+        "place": "System Analysis and Dev.",
+        "location": "College of Technology of Itapetininga - FATEC, Brazil"
+      },
+      {
+        "period": "2014 - 2015",
+        "title": "NON-DEGREE PROGRAM",
+        "place": "Software Engineering",
+        "location": "Auburn University, USA"
       }
     ],
-    "skills" : [
+    "skills": [
       {
-        "title" : "Graphic Design [Photoshop]",
-        "value" : "90"
+        "title": "ReactJs",
+        "value": "90"
       },
       {
-        "title" : "Layout design [InDesign]",
-        "value" : "85"
+        "title": "General Frontend JS",
+        "value": "80"
       },
       {
-        "title" : "HTML/CSS",
-        "value" : "80"
+        "title": "HTML/CSS",
+        "value": "80"
       },
       {
-        "title" : "JS FrontEnd [incl. React]",
-        "value" : "60"
+        "title": "Graphic Design [Photoshop]",
+        "value": "80"
       },
       {
-        "title" : "UI Design [Figma]",
-        "value" : "60"
+        "title": "Layout design [InDesign]",
+        "value": "80"
       },
       {
-        "title" : "3D Art [Blender]",
-        "value" : "55"
+        "title": "3D Modelling [Blender]",
+        "value": "60"
       },
       {
-        "title" : "Video Editing [Premiere]",
-        "value" : "50"
+        "title": "Video Editing",
+        "value": "60"
       },
       {
-        "title" : "Animation [After Effects]",
-        "value" : "45"
+        "title": "Game Development [Unity, Godot]",
+        "value": "45"
       },
       {
-        "title" : "Game Dev [Unity, Godot]",
-        "value" : "40"
-      },
-      {
-        "title" : "BackEnd [Node.Js]",
-        "value" : "30"
+        "title": "BackEnd [Node.Js/PHP]",
+        "value": "40"
       }
     ]
   }
